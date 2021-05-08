@@ -23,6 +23,8 @@ Currently, 29 of the most popular ETFs from iShares and ARK are added:
 | ARK INNOVATION ETF                       | ARKK   |
 | ARK Autonomous Technology & Robotics ETF | ARKQ   |
 | ...                                      | ...    |
+| iShares Core MSCI World UCITS ETF        | EUNL   |
+| ...                                      | ...    |
 
 First, customize the file portfolio.py to resemble your stock portfolio.
 Then get insight into weighted overlaps by running
