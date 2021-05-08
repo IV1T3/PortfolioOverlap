@@ -7,14 +7,8 @@
     Value: Portfolio weight in percent
 """
 PORTFOLIO_DATA = {
-    "TSLA": 10.0,
-    "AAPL": 10.0,
-    "BRKB": 10.0,
-    "MSFT": 10.0,
-    "AMZN": 10.0,
-    "LIN": 10.0,
-    "JNJ": 10.0,
-    "HD": 10.0,
-    "UL": 10.0,
-    "NVDA": 10.0,
+    "AAPL": 25.0,
+    "MSFT": 25.0,
+    "AMZN": 25.0,
+    "TSLA": 25.0,
 }
