@@ -159,6 +159,16 @@ ETF_LIST = {
         "name": "iShares TecDAX® UCITS ETF (DE)",
         "url": "https://www.ishares.com/de/privatanleger/de/produkte/251975/ishares-tecdax-ucits-etf-de-fund/1478358465952.ajax?fileType=csv&fileName=EXS2_holdings&dataType=fund",
     },
+    "EXW1": {
+        "issuer": "iShares",
+        "name": "iShares Core EURO STOXX 50 UCITS ETF (DE)",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/251783/ishares-euro-stoxx-50-ucits-etf-de-fund/1478358465952.ajax?fileType=csv&fileName=EXW1_holdings&dataType=fund",
+    },
+    "EXSA": {
+        "issuer": "iShares",
+        "name": "iShares STOXX Europe 600 UCITS ETF (DE)",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/251931/ishares-stoxx-europe-600-ucits-etf-de-fund/1478358465952.ajax?fileType=csv&fileName=EXSA_holdings&dataType=fund",
+    },
     "LYPC": {
         "issuer": "Lyxor",
         "name": "Lyxor MSCI World Energy TR UCITS ETF",
