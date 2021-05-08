@@ -16,7 +16,7 @@ $ pip3 install -r requirements.txt
 
 ## How to use
 
-Currently, 31 of the most popular ETFs from iShares, ARK and Lyxor are supported:
+Currently, 34 of the most popular ETFs from iShares, ARK and Lyxor are supported:
 
 | ETF                                      | Ticker |
 | ---------------------------------------- | ------ |
