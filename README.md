@@ -26,7 +26,7 @@ Currently, 29 of the most popular ETFs from iShares and ARK are added:
 | iShares Core MSCI World UCITS ETF        | EUNL   |
 | ...                                      | ...    |
 
-First, customize the file `portfolio.py` to resemble your stock portfolio such as:
+First, customize the file `portfoliooverlap/portfolio.py` to resemble your stock portfolio such as:
 
 ```python
 PORTFOLIO_DATA = {
@@ -40,5 +40,5 @@ PORTFOLIO_DATA = {
 Then get insight into weighted overlaps by running
 
 ```console
-$ python3 etf_overlap.py
+$ python3 portfoliooverlap/main.py
 ```
