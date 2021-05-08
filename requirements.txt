@@ -1,0 +1,5 @@
+cloudscraper
+dateparser
+PyPDF2
+requests
+tqdm
