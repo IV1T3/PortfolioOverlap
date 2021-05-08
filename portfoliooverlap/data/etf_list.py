@@ -144,12 +144,12 @@ ETF_LIST = {
         "name": "iShares MSCI USA ESG Enhanced UCITS ETF",
         "url": "https://www.ishares.com/de/privatanleger/de/produkte/307527/fund/1478358465952.ajax?fileType=csv&fileName=EDMU_holdings&dataType=fund",
     },
-    "NDWUENR": {
+    "LYPC": {
         "issuer": "Lyxor",
         "name": "Lyxor MSCI World Energy TR UCITS ETF",
         "url": "https://www.lyxoretf.de/api/productPage/getFundHoldings?ticker=LYPC%20GY&country=Germany&language=German",
     },
-    "WOWAXC": {
+    "LYXWAT": {
         "issuer": "Lyxor",
         "name": "Lyxor World Water (DR) UCITS ETF",
         "url": "https://www.lyxoretf.de/api/productPage/getFundHoldings?ticker=LYXWAT%20GY&country=Germany&language=German",
