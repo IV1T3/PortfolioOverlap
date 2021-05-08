@@ -3,3 +3,6 @@ dateparser
 PyPDF2
 requests
 tqdm
+openpyxl
+pyexcel
+pyexcel-xls

@@ -16,15 +16,17 @@ $ pip3 install -r requirements.txt
 
 ## How to use
 
-Currently, 29 of the most popular ETFs from iShares and ARK are added:
+Currently, 31 of the most popular ETFs from iShares, ARK and Lyxor are supported:
 
-| ETF                                      | Ticker |
-| ---------------------------------------- | ------ |
-| ARK INNOVATION ETF                       | ARKK   |
-| ARK Autonomous Technology & Robotics ETF | ARKQ   |
-| ...                                      | ...    |
-| iShares Core MSCI World UCITS ETF        | EUNL   |
-| ...                                      | ...    |
+| ETF                                      | Ticker  |
+| ---------------------------------------- | ------- |
+| ARK INNOVATION ETF                       | ARKK    |
+| ARK Autonomous Technology & Robotics ETF | ARKQ    |
+| ...                                      | ...     |
+| iShares Core MSCI World UCITS ETF        | EUNL    |
+| ...                                      | ...     |
+| Lyxor MSCI World Energy TR UCITS ETF     | NDWUENR |
+| ...                                      | ...     |
 
 First, customize the file `portfoliooverlap/portfolio.py` to resemble your stock portfolio such as:
 

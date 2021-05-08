@@ -6,11 +6,14 @@ import io
 import PyPDF2
 import requests
 
+import pprint
+
+import pyexcel as pe
+
 from tqdm import tqdm
 
 from data.etf_data import ETF_DATA_TEMPLATE
 from data.etf_list import ETF_LIST
-
 from portfolio import PORTFOLIO_DATA
 
 # TODO:
@@ -29,7 +32,7 @@ def chunks(lst, n):
         yield lst[i : i + n]
 
 
-def format_data(date):
+def format_date(date):
     return dateparser.parse(date).strftime("%d.%m.%Y")
 
 
@@ -46,8 +49,8 @@ def parse_ark_pdf(pdf_content):
     description = text_splits[:8]
     ark_holdings = list(chunks(text_splits[8:], 7))
 
-    # Parse data into ETF structure
-    parsed_date = format_data(description[1].split(" ")[2])
+    # Parse date into ETF structure
+    parsed_date = format_date(description[1].split(" ")[2])
 
     # Fill ETF_DATA
     etf_data = copy.deepcopy(ETF_DATA_TEMPLATE)
@@ -66,9 +69,35 @@ def parse_ark_pdf(pdf_content):
     return etf_data
 
 
+def parse_lyxor_xls(r_content):
+    # Read data from XLS Bytes Buffer
+    key = "Holdings & Exposure Constituant"
+    book = pe.get_book_dict(file_type="xls", file_content=r_content)[key][7:]
+
+    # Parse date into ETF structure
+    parsed_date = format_date(book[0][0].split(":")[1])
+
+    # Fill ETF_DATA
+    etf_data = copy.deepcopy(ETF_DATA_TEMPLATE)
+    etf_data["date"] = parsed_date
+
+    ticker_index = 2
+    name_index = 4
+    weight_index = 5
+    lyxor_holdings = book[7:]
+    for position in lyxor_holdings:
+        symbol = position[ticker_index]
+        name = position[name_index]
+        weight = position[weight_index]
+        etf_data["holdings"].append([symbol, name, weight])
+
+    print(etf_data)
+    return etf_data
+
+
 def parse_ishares_csv(wrapper):
     etf_data = copy.deepcopy(ETF_DATA_TEMPLATE)
-    parsed_date = format_data(wrapper[0][1])
+    parsed_date = format_date(wrapper[0][1])
     etf_data["date"] = parsed_date
     description = wrapper[2]
     ticker_index = 0
@@ -114,6 +143,13 @@ def calculate_overlapping_percentage(etf_data, portfolio_data):
     return shares_in_common, total_overlap_percentage
 
 
+def get_lyxor_fund_data(url):
+    response = requests.get(url)
+    r_content = response.content
+
+    return parse_lyxor_xls(r_content)
+
+
 def get_ishares_fund_data(url):
     response = requests.get(url)
     wrapper = list(csv.reader(response.text.strip().split("\n")))
@@ -128,11 +164,13 @@ def get_ark_fund_data(url):
     return parse_ark_pdf(pdf_content)
 
 
-def get_fund_data(provider, url):
-    if provider == "iShares":
+def get_fund_data(issuer, url):
+    if issuer == "iShares":
         fund_data = get_ishares_fund_data(url)
-    elif provider == "ARK":
+    elif issuer == "ARK":
         fund_data = get_ark_fund_data(url)
+    elif issuer == "Lyxor":
+        fund_data = get_lyxor_fund_data(url)
 
     return fund_data
 
@@ -141,7 +179,7 @@ def get_matching_etfs(portfolio_data):
     matching_etfs = {}
     for etf_ticker in tqdm(ETF_LIST):
         etf_data = get_fund_data(
-            ETF_LIST[etf_ticker]["provider"], ETF_LIST[etf_ticker]["url"]
+            ETF_LIST[etf_ticker]["issuer"], ETF_LIST[etf_ticker]["url"]
         )
         overlapping = calculate_overlapping_percentage(etf_data, portfolio_data)
         matching_etfs[etf_ticker] = overlapping
@@ -175,5 +213,6 @@ def beautiful_output(matching_etfs):
 
 
 if __name__ == "__main__":
+    pp = pprint.PrettyPrinter(indent=4)
     matching_etfs = get_matching_etfs(PORTFOLIO_DATA)
     beautiful_output(matching_etfs)
