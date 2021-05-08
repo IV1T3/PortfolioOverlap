@@ -18,11 +18,12 @@ from portfolio import PORTFOLIO_DATA
 
 # TODO:
 # Rekursive ETF Aufloesung in Portfolio
-
-# USAGE
-# 1. Customize file portfolio.py to fit your portfolio
-# 2. pip3 install -r requirements.txt
-# 3. python3 etf_overlap.py
+# Berechne bestes matching mit mehreren ETFs
+#   Welche ETFs zusammen bilden Portfolio am besten ab?
+#   Alle möglichen Permutationen
+#   Overlap percent maximieren
+#   Overlap holdings summe equal portfolio weight
+# Finde weitere ticker symbols zu gegebenem
 
 
 def chunks(lst, n):
@@ -90,8 +91,6 @@ def parse_lyxor_xls(r_content):
         name = position[name_index]
         weight = position[weight_index]
         etf_data["holdings"].append([symbol, name, weight])
-
-    print(etf_data)
     return etf_data
 
 

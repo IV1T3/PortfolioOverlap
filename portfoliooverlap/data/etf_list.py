@@ -144,6 +144,21 @@ ETF_LIST = {
         "name": "iShares MSCI USA ESG Enhanced UCITS ETF",
         "url": "https://www.ishares.com/de/privatanleger/de/produkte/307527/fund/1478358465952.ajax?fileType=csv&fileName=EDMU_holdings&dataType=fund",
     },
+    "EXS3": {
+        "issuer": "iShares",
+        "name": "iShares MDAX® UCITS ETF (DE)",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/251845/ishares-mdax-ucits-etf-de-fund/1478358465952.ajax?fileType=csv&fileName=EXS3_holdings&dataType=fund",
+    },
+    "EXSB": {
+        "issuer": "iShares",
+        "name": "iShares DivDAX® UCITS ETF (DE)",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/251763/ishares-divdax-ucits-etf-de-fund/1478358465952.ajax?fileType=csv&fileName=EXSB_holdings&dataType=fund",
+    },
+    "EXS2": {
+        "issuer": "iShares",
+        "name": "iShares TecDAX® UCITS ETF (DE)",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/251975/ishares-tecdax-ucits-etf-de-fund/1478358465952.ajax?fileType=csv&fileName=EXS2_holdings&dataType=fund",
+    },
     "LYPC": {
         "issuer": "Lyxor",
         "name": "Lyxor MSCI World Energy TR UCITS ETF",
