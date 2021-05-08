@@ -22,8 +22,8 @@ Currently, 29 of the most popular ETFs from iShares and ARK are added:
 | ---------------------------------------- | ------ |
 | ARK INNOVATION ETF                       | ARKK   |
 | ARK Autonomous Technology & Robotics ETF | ARKQ   |
+| ...                                      | ...    |
 
-...
 First, customize the file portfolio.py to resemble your stock portfolio.
 Then get insight into weighted overlaps by running
 
