@@ -8,8 +8,9 @@ import requests
 
 from tqdm import tqdm
 
-from etf_data import ETF_DATA_TEMPLATE, ETF_DATA_EXAMPLE
-from etf_list import ETF_LIST
+from data.etf_data import ETF_DATA_TEMPLATE
+from data.etf_list import ETF_LIST
+
 from portfolio import PORTFOLIO_DATA
 
 # TODO:
@@ -173,5 +174,6 @@ def beautiful_output(matching_etfs):
         print(f"{no_overlap_ticker} - {ETF_LIST[no_overlap_ticker]['name']}")
 
 
-matching_etfs = get_matching_etfs(PORTFOLIO_DATA)
-beautiful_output(matching_etfs)
+if __name__ == "__main__":
+    matching_etfs = get_matching_etfs(PORTFOLIO_DATA)
+    beautiful_output(matching_etfs)
