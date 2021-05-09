@@ -16,7 +16,7 @@ $ pip3 install -r requirements.txt
 
 ## How to use
 
-Currently, 36 of the most popular ETFs from iShares, ARK and Lyxor are supported:
+Currently, 65 of the most popular ETFs from iShares, ARK and Lyxor are supported:
 
 | ETF                                      | Ticker |
 | ---------------------------------------- | ------ |
@@ -49,19 +49,19 @@ Using the portfolio above yields
 the following insights
 
 ```
-ETFs sorted by weighted overlap in a descending order
+ETFs sorted by weighted overlap in descending order
+----
+iShares S&P 500 Information Technology Sector UCITS ETF
+Overlap: 41.0438%
+Holdings: ['AAPL', 'MSFT']
 ----
 iShares NASDAQ 100 UCITS ETF
 Overlap: 33.4884%
 Holdings: ['AAPL', 'MSFT', 'AMZN', 'TSLA']
 ----
-iShares Core S&P 500 UCITS ETF
-Overlap: 16.44%
-Holdings: ['AAPL', 'MSFT', 'AMZN', 'TSLA']
-----
-iShares MSCI USA ESG Screened UCITS ETF
-Overlap: 16.4384%
-Holdings: ['AAPL', 'MSFT', 'AMZN', 'TSLA']
+iShares Edge MSCI World Momentum Factor UCITS ETF
+Overlap: 19.988%
+Holdings: ['TSLA', 'MSFT', 'AAPL', 'AMZN']
 ----
 ...
 ```

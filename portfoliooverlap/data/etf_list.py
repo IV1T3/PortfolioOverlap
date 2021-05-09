@@ -169,6 +169,151 @@ ETF_LIST = {
         "name": "iShares STOXX Europe 600 UCITS ETF (DE)",
         "url": "https://www.ishares.com/de/privatanleger/de/produkte/251931/ishares-stoxx-europe-600-ucits-etf-de-fund/1478358465952.ajax?fileType=csv&fileName=EXSA_holdings&dataType=fund",
     },
+    "SXRZ": {
+        "issuer": "iShares",
+        "name": "iShares Nikkei 225 UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/253742/ishares-nikkei-225-ucits-etf/1478358465952.ajax?fileType=csv&fileName=SXRZ_holdings&dataType=fund",
+    },
+    "IUSZ": {
+        "issuer": "iShares",
+        "name": "iShares Core FTSE 100 UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/251795/ishares-ftse-100-ucits-etf-inc-fund/1478358465952.ajax?fileType=csv&fileName=IUSZ_holdings&dataType=fund",
+    },
+    "IQQY": {
+        "issuer": "iShares",
+        "name": "iShares Core MSCI Europe UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/251860/ishares-msci-europe-ucits-etf-inc-fund/1478358465952.ajax?fileType=csv&fileName=IQQY_holdings&dataType=fund",
+    },
+    "QDVI": {
+        "issuer": "iShares",
+        "name": "iShares Edge MSCI USA Value Factor UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/285207/fund/1478358465952.ajax?fileType=csv&fileName=QDVI_holdings&dataType=fund",
+    },
+    "IS3S": {
+        "issuer": "iShares",
+        "name": "iShares Edge MSCI World Value Factor UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/270048/ishares-msci-world-value-factor-ucits-etf/1478358465952.ajax?fileType=csv&fileName=IS3S_holdings&dataType=fund",
+    },
+    "OM3X": {
+        "issuer": "iShares",
+        "name": "iShares OMX Stockholm Capped UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/286021/fund/1478358465952.ajax?fileType=csv&fileName=OM3X_holdings&dataType=fund",
+    },
+    "EUNN": {
+        "issuer": "iShares",
+        "name": "iShares Core MSCI Japan IMI UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/251867/ishares-msci-japan-ucits-etf-acc-fund/1478358465952.ajax?fileType=csv&fileName=EUNN_holdings&dataType=fund",
+    },
+    "IQQ0": {
+        "issuer": "iShares",
+        "name": "iShares Edge MSCI World Minimum Volatility UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/251382/ishares-msci-world-minimum-volatility-ucits-etf/1478358465952.ajax?fileType=csv&fileName=IQQ0_holdings&dataType=fund",
+    },
+    "CEUD": {
+        "issuer": "iShares",
+        "name": "iShares Core MSCI EMU UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/287343/fund/1478358465952.ajax?fileType=csv&fileName=CEUD_holdings&dataType=fund",
+    },
+    "SXR1": {
+        "issuer": "iShares",
+        "name": "iShares Core MSCI Pacific ex-Japan UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/253735/ishares-msci-pacific-ex-japan-ucits-etf-acc-fund/1478358465952.ajax?fileType=csv&fileName=SXR1_holdings&dataType=fund",
+    },
+    "CEMS": {
+        "issuer": "iShares",
+        "name": "iShares Edge MSCI Europe Value Factor UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/272058/ishares-msci-europe-value-factor-ucits-etf/1478358465952.ajax?fileType=csv&fileName=CEMS_holdings&dataType=fund",
+    },
+    "IS3R": {
+        "issuer": "iShares",
+        "name": "iShares Edge MSCI World Momentum Factor UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/270051/ishares-msci-world-momentum-factor-ucits-etf/1478358465952.ajax?fileType=csv&fileName=IS3R_holdings&dataType=fund",
+    },
+    "QDVE": {
+        "issuer": "iShares",
+        "name": "iShares S&P 500 Information Technology Sector UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/280510/ishares-sp-500-information-technology-sector-ucits-etf/1478358465952.ajax?fileType=csv&fileName=QDVE_holdings&dataType=fund",
+    },
+    "IQQ6": {
+        "issuer": "iShares",
+        "name": "iShares Developed Markets Property Yield UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/251801/ishares-developed-markets-property-yield-ucits-etf/1478358465952.ajax?fileType=csv&fileName=IQQ6_holdings&dataType=fund",
+    },
+    "IS0E": {
+        "issuer": "iShares",
+        "name": "iShares Gold Producers UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/251908/ishares-gold-producers-ucits-etf/1478358465952.ajax?fileType=csv&fileName=IS0E_holdings&dataType=fund",
+    },
+    "IQQQ": {
+        "issuer": "iShares",
+        "name": "iShares Global Water UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/251913/ishares-global-water-ucits-etf/1478358465952.ajax?fileType=csv&fileName=IQQQ_holdings&dataType=fund",
+    },
+    "IS3Q": {
+        "issuer": "iShares",
+        "name": "iShares Edge MSCI World Quality Factor UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/270054/ishares-msci-world-quality-factor-ucits-etf/1478358465952.ajax?fileType=csv&fileName=IS3Q_holdings&dataType=fund",
+    },
+    "IPRE": {
+        "issuer": "iShares",
+        "name": "iShares European Property Yield UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/306098/fund/1478358465952.ajax?fileType=csv&fileName=IPRE_holdings&dataType=fund",
+    },
+    "DGTL": {
+        "issuer": "iShares",
+        "name": "iShares Digitalisation UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/284217/fund/1478358465952.ajax?fileType=csv&fileName=DGTL_holdings&dataType=fund",
+    },
+    "QDVG": {
+        "issuer": "iShares",
+        "name": "iShares S&P 500 Health Care Sector UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/280507/ishares-sp-500-health-care-sector-ucits-etf/1478358465952.ajax?fileType=csv&fileName=QDVG_holdings&dataType=fund",
+    },
+    "IBCK": {
+        "issuer": "iShares",
+        "name": "iShares Edge S&P 500 Minimum Volatility UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/251383/ishares-sp-500-minimum-volatility-ucits-etf/1478358465952.ajax?fileType=csv&fileName=IBCK_holdings&dataType=fund",
+    },
+    "LOCK": {
+        "issuer": "iShares",
+        "name": "iShares Digital Security UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/297843/fund/1478358465952.ajax?fileType=csv&fileName=LOCK_holdings&dataType=fund",
+    },
+    "IQQI": {
+        "issuer": "iShares",
+        "name": "iShares Global Infrastructure UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/251809/ishares-global-infrastructure-ucits-etf/1478358465952.ajax?fileType=csv&fileName=IQQI_holdings&dataType=fund",
+    },
+    "AGED": {
+        "issuer": "iShares",
+        "name": "iShares Ageing Population UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/284218/fund/1478358465952.ajax?fileType=csv&fileName=AGED_holdings&dataType=fund",
+    },
+    "IEVD": {
+        "issuer": "iShares",
+        "name": "iShares Electric Vehicles and Driving Technology UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/307130/fund/1478358465952.ajax?fileType=csv&fileName=IEVD_holdings&dataType=fund",
+    },
+    "IBCZ": {
+        "issuer": "iShares",
+        "name": "iShares Edge MSCI World Multifactor UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/277246/ishares-factorselect-msci-world-ucits-etf/1478358465952.ajax?fileType=csv&fileName=IBCZ_holdings&dataType=fund",
+    },
+    "EXX5": {
+        "issuer": "iShares",
+        "name": "iShares Dow Jones U.S. Select Dividend UCITS ETF (DE)",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/251771/ishares-dow-jones-us-select-dividend-ucits-etf-de-fund/1478358465952.ajax?fileType=csv&fileName=EXX5_holdings&dataType=fund",
+    },
+    "BTEC": {
+        "issuer": "iShares",
+        "name": "iShares Nasdaq US Biotechnology UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/291450/fund/1478358465952.ajax?fileType=csv&fileName=BTEC_holdings&dataType=fund",
+    },
+    "QDVD": {
+        "issuer": "iShares",
+        "name": "iShares MSCI USA Quality Dividend UCITS ETF",
+        "url": "https://www.ishares.com/de/privatanleger/de/produkte/264660/ishares-msci-usa-dividend-iq-ucits-etf/1478358465952.ajax?fileType=csv&fileName=QDVD_holdings&dataType=fund",
+    },
     "LYPC": {
         "issuer": "Lyxor",
         "name": "Lyxor MSCI World Energy TR UCITS ETF",
