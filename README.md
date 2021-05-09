@@ -28,7 +28,7 @@ Currently, 36 of the most popular ETFs from iShares, ARK and Lyxor are supported
 | Lyxor MSCI World Energy TR UCITS ETF     | LYPC   |
 | ...                                      | ...    |
 
-First, customize the file `portfoliooverlap/portfolio.py` to resemble your stock portfolio such as:
+First, customize the file `portfoliooverlap/portfolio.py` to resemble your stock portfolio such as
 
 ```python
 PORTFOLIO_DATA = {
@@ -39,8 +39,29 @@ PORTFOLIO_DATA = {
 }
 ```
 
-Then get insight into weighted overlaps by running
+Then, run the tool
 
 ```console
 $ python3 portfoliooverlap/main.py
+```
+
+Using the portfolio as above yields
+the following insights
+
+```
+ETFs sorted by weighted overlap in a descending order
+----
+iShares NASDAQ 100 UCITS ETF
+Overlap: 33.4884%
+Holdings: ['AAPL', 'MSFT', 'AMZN', 'TSLA']
+----
+iShares Core S&P 500 UCITS ETF
+Overlap: 16.44%
+Holdings: ['AAPL', 'MSFT', 'AMZN', 'TSLA']
+----
+iShares MSCI USA ESG Screened UCITS ETF
+Overlap: 16.4384%
+Holdings: ['AAPL', 'MSFT', 'AMZN', 'TSLA']
+----
+...
 ```
