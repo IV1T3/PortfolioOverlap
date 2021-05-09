@@ -45,7 +45,7 @@ Then, run the tool
 $ python3 portfoliooverlap/main.py
 ```
 
-Using the portfolio as above yields
+Using the portfolio above yields
 the following insights
 
 ```
