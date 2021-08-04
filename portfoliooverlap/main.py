@@ -27,10 +27,14 @@ from portfolio import PORTFOLIO_DATA
 
 
 def chunks(lst, n):
-    # https://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks
-    """Yield successive n-sized chunks from lst."""
-    for i in range(0, len(lst), n):
-        yield lst[i : i + n]
+    return [lst[i:i + n] for i in range(0, len(lst), n)]
+
+def check_float(potential_float):
+    try:
+        float(potential_float)
+        return True
+    except ValueError:
+        return False
 
 
 def format_date(date):
@@ -48,7 +52,7 @@ def parse_ark_pdf(pdf_content):
 
     text_splits = pdf_text.split("\n")
     description = text_splits[:8]
-    ark_holdings = list(chunks(text_splits[8:], 7))
+    ark_holdings = chunks(text_splits[8:], 7)
 
     # Parse date into ETF structure
     parsed_date = format_date(description[1].split(" ")[2])
@@ -61,7 +65,7 @@ def parse_ark_pdf(pdf_content):
     weight_index = 6
 
     for position in ark_holdings:
-        if position[0].isdigit() and position[3].isdigit():
+        if position[0].isdigit() and check_float(position[6]):
             symbol = position[ticker_index]
             name = position[name_index]
             weight = float(position[weight_index])
@@ -124,7 +128,8 @@ def get_shares_in_common(portfolio_a, portfolio_b):
 def calculate_overlapping_percentage(etf_data, portfolio_data):
     shares_in_common = []
     total_overlap_percentage = 0.0
-    overlap_sum = 0.0
+    # overlap_sum = 0.0
+    individual_overlaps = []
     etf_holdings = etf_data["holdings"]
     etf_weight_sum = sum([position[2] for position in etf_holdings])
     portfolio_weight_sum = sum(portfolio_data.values())
@@ -134,9 +139,11 @@ def calculate_overlapping_percentage(etf_data, portfolio_data):
         if etf_position_symbol in portfolio_data:
             shares_in_common.append(etf_position_symbol)
             portfolio_position_weight = portfolio_data[etf_position_symbol]
-            overlap_sum += min(etf_position_weight, portfolio_position_weight)
+            ind_overlap = min(etf_position_weight, portfolio_position_weight)
+            individual_overlaps.append(ind_overlap)
+            # overlap_sum += ind_overlap
     total_overlap_percentage = (
-        2 * (overlap_sum) / (etf_weight_sum + portfolio_weight_sum)
+        2 * (sum(individual_overlaps)) / (etf_weight_sum + portfolio_weight_sum)
     )
 
     return shares_in_common, total_overlap_percentage
@@ -202,7 +209,7 @@ def beautiful_output(matching_etfs):
         if rounded_overlap > 0.0:
             print(ETF_LIST[etf_ticker]["name"])
             print(f"Overlap: {rounded_overlap}%")
-            print("Holdings:", sorted_etfs[etf_ticker][0])
+            print("Overlapping holdings:", sorted_etfs[etf_ticker][0])
             print("----")
         else:
             no_overlap.append(etf_ticker)
