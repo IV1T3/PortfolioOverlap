@@ -314,6 +314,21 @@ ETF_LIST = {
         "name": "iShares MSCI USA Quality Dividend UCITS ETF",
         "url": "https://www.ishares.com/de/privatanleger/de/produkte/264660/ishares-msci-usa-dividend-iq-ucits-etf/1478358465952.ajax?fileType=csv&fileName=QDVD_holdings&dataType=fund",
     },
+    "UPAB": {
+         "issuer": "iShares",
+         "name": "iShares S&P 500 Paris-Aligned Climate UCITS ETF",
+         "url": "https://www.ishares.com/de/privatanleger/de/produkte/318387/fund/1478358465952.ajax?fileType=csv&fileName=UPAB_holdings&dataType=fund",
+     },
+     "ESIT": {
+         "issuer": "iShares",
+         "name": "iShares MSCI Europe Information Technology Sector UCITS ETF",
+         "url": "https://www.ishares.com/de/privatanleger/de/produkte/315818/fund/1478358465952.ajax?fileType=csv&fileName=ESIT_holdings&dataType=fund",
+     },
+     "UMDV": {
+         "issuer": "iShares",
+         "name": " iShares US Medical Devices UCITS ETF",
+         "url": "https://www.ishares.com/de/privatanleger/de/produkte/314925/fund/1478358465952.ajax?fileType=csv&fileName=UMDV_holdings&dataType=fund",
+     },
     "LYPC": {
         "issuer": "Lyxor",
         "name": "Lyxor MSCI World Energy TR UCITS ETF",
