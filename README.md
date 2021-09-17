@@ -37,6 +37,11 @@ First, insert your stock portfolio into the file `portfolio.yml` in the format `
 'US88160R1014': 4.0 # TSLA
 ```
 
+The tool also uses the AlphaVantage API to fetch the current price of the stocks in your portfolio. To use the API, you need to get a free API key at [AlphaVantage](https://www.alphavantage.co/support/#api-key). In the root directory of the project, create a file named `.env` and add your API key as follows:
+```console
+ALPHAVANTAGE_KEY = "API_KEY"
+```
+
 Then, run the tool
 
 ```console
