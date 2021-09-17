@@ -32,10 +32,10 @@ First, customize the file `portfoliooverlap/portfolio.py` to resemble your stock
 
 ```python
 PORTFOLIO_DATA = {
-    "AAPL": 25.0,
-    "MSFT": 25.0,
-    "AMZN": 25.0,
-    "TSLA": 25.0,
+    "US0378331005": 25.0, # AAPL
+    "US5949181045": 25.0, # MSFT
+    "US0231351067": 25.0, # AMZN
+    "US88160R1014": 25.0, # TSLA
 }
 ```
 
@@ -52,15 +52,15 @@ the following insights
 ETFs sorted by weighted overlap in descending order
 ----
 iShares S&P 500 Information Technology Sector UCITS ETF
-Overlap: 41.4605%
+Overlap: 42.0621%
 Overlapping holdings: ['AAPL', 'MSFT']
 ----
 iShares NASDAQ 100 UCITS ETF
-Overlap: 33.0083%
+Overlap: 33.22%
 Overlapping holdings: ['AAPL', 'MSFT', 'AMZN', 'TSLA']
 ----
 iShares S&P 500 Paris-Aligned Climate UCITS ETF
-Overlap: 19.1219%
+Overlap: 19.3978%
 Overlapping holdings: ['AAPL', 'MSFT', 'AMZN', 'TSLA']
 ----
 ...

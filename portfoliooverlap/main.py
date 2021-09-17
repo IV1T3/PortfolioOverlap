@@ -5,16 +5,20 @@ import dateparser
 import io
 import PyPDF2
 import requests
+import json
 
 import pprint
 
 import pyexcel as pe
+from requests.api import get
 
 from tqdm import tqdm
+from time import sleep
 
 from data.etf_data import ETF_DATA_TEMPLATE
 from data.etf_list import ETF_LIST
 from portfolio import PORTFOLIO_DATA
+from stock import Stock
 
 # TODO:
 # Rekursive ETF Aufloesung in Portfolio
@@ -23,7 +27,6 @@ from portfolio import PORTFOLIO_DATA
 #   Alle möglichen Permutationen
 #   Overlap percent maximieren
 #   Overlap holdings summe equal portfolio weight
-# Finde weitere ticker symbols zu gegebenem
 
 
 def chunks(lst, n):
@@ -125,23 +128,24 @@ def get_shares_in_common(portfolio_a, portfolio_b):
     return shares_in_common
 
 
-def calculate_overlapping_percentage(etf_data, portfolio_data):
+def calculate_overlapping_percentage(etf_data, stocks):
     shares_in_common = []
     total_overlap_percentage = 0.0
     # overlap_sum = 0.0
     individual_overlaps = []
     etf_holdings = etf_data["holdings"]
     etf_weight_sum = sum([position[2] for position in etf_holdings])
-    portfolio_weight_sum = sum(portfolio_data.values())
+    portfolio_weight_sum = sum([stock.portfolio_percentage for stock in stocks])
     for etf_position in etf_holdings:
         etf_position_symbol = etf_position[0]
         etf_position_weight = etf_position[2]
-        if etf_position_symbol in portfolio_data:
-            shares_in_common.append(etf_position_symbol)
-            portfolio_position_weight = portfolio_data[etf_position_symbol]
-            ind_overlap = min(etf_position_weight, portfolio_position_weight)
-            individual_overlaps.append(ind_overlap)
-            # overlap_sum += ind_overlap
+        for stock in stocks:
+            if etf_position_symbol in stock.tickers:
+                shares_in_common.append(etf_position_symbol)
+                portfolio_position_weight = stock.portfolio_percentage
+                ind_overlap = min(etf_position_weight, portfolio_position_weight)
+                individual_overlaps.append(ind_overlap)
+                # overlap_sum += ind_overlap
     total_overlap_percentage = (
         2 * (sum(individual_overlaps)) / (etf_weight_sum + portfolio_weight_sum)
     )
@@ -181,13 +185,13 @@ def get_fund_data(issuer, url):
     return fund_data
 
 
-def get_matching_etfs(portfolio_data):
+def get_matching_etfs(stocks):
     matching_etfs = {}
     for etf_ticker in tqdm(ETF_LIST):
         etf_data = get_fund_data(
             ETF_LIST[etf_ticker]["issuer"], ETF_LIST[etf_ticker]["url"]
         )
-        overlapping = calculate_overlapping_percentage(etf_data, portfolio_data)
+        overlapping = calculate_overlapping_percentage(etf_data, stocks)
         matching_etfs[etf_ticker] = overlapping
 
     return matching_etfs
@@ -217,8 +221,45 @@ def beautiful_output(matching_etfs):
     for no_overlap_ticker in no_overlap:
         print(f"{no_overlap_ticker} - {ETF_LIST[no_overlap_ticker]['name']}")
 
+def collect_all_tickers_from_isin(isin):
+    FIGI_URL = 'https://api.openfigi.com/v3/mapping'
+    FIGI_HEADERS = {
+        'Content-Type':'application/json'
+    }
+    FIGI_PAYLOAD = '[{"idType":"ID_ISIN","idValue":"'+ isin +'"}]'
+
+    r = requests.post(FIGI_URL, headers=FIGI_HEADERS, data=FIGI_PAYLOAD)
+
+    try:
+        json_data = r.json()[0]['data']
+        company = json_data[0]['name']
+        all_tickers = []
+
+        for i in range(len(json_data)):
+            all_tickers.append(json_data[i]['ticker'])
+
+        return company, list(set(all_tickers))
+    except json.decoder.JSONDecodeError:
+        return None, None
 
 if __name__ == "__main__":
     pp = pprint.PrettyPrinter(indent=4)
-    matching_etfs = get_matching_etfs(PORTFOLIO_DATA)
-    beautiful_output(matching_etfs)
+
+    stocks = []
+    collecting_tickers_successful = True
+
+    for isin in PORTFOLIO_DATA:
+        try:
+            company_name, tickers = collect_all_tickers_from_isin(isin)
+            stock = Stock(company_name, isin, tickers, PORTFOLIO_DATA[isin])
+            stocks.append(stock)
+            print(f"Having collected {company_name} tickers. Now sleeping for 3 seconds.")
+            sleep(3)
+        except json.decoder.JSONDecodeError:
+            print("Too many requests. Try again later or increase sleep.")
+            collecting_tickers_successful = False
+    
+    if collecting_tickers_successful:
+        pp.pprint(stocks)
+        matching_etfs = get_matching_etfs(stocks)
+        beautiful_output(matching_etfs)
