@@ -14,8 +14,6 @@ import pyexcel as pe
 from tqdm import tqdm
 from time import sleep
 
-from tqdm.std import trange
-
 from data.etf_data import ETF_DATA_TEMPLATE
 from data.etf_list import ETF_LIST
 from portfolio import PORTFOLIO_DATA
