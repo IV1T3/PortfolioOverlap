@@ -7,6 +7,7 @@ import PyPDF2
 import requests
 import json
 import yaml
+import os
 
 from yaml.loader import SafeLoader
 
@@ -16,10 +17,11 @@ import pyexcel as pe
 
 from tqdm import tqdm
 from time import sleep
+from dotenv import load_dotenv
 
 from data.etf_data import ETF_DATA_TEMPLATE
 from data.etf_list import ETF_LIST
-from stock import Stock
+from holding import Holding
 
 # TODO:
 # Rekursive ETF Aufloesung in Portfolio
@@ -129,21 +131,21 @@ def get_shares_in_common(portfolio_a, portfolio_b):
     return shares_in_common
 
 
-def calculate_overlapping_percentage(etf_data, stocks):
+def calculate_overlapping_percentage(etf_data, holdings):
     shares_in_common = []
     total_overlap_percentage = 0.0
     # overlap_sum = 0.0
     individual_overlaps = []
     etf_holdings = etf_data["holdings"]
     etf_weight_sum = sum([position[2] for position in etf_holdings])
-    portfolio_weight_sum = sum([stock.portfolio_percentage for stock in stocks])
+    portfolio_weight_sum = sum([holding.portfolio_percentage for holding in holdings])
     for etf_position in etf_holdings:
         etf_position_symbol = etf_position[0]
         etf_position_weight = etf_position[2]
-        for stock in stocks:
-            if etf_position_symbol in stock.tickers:
+        for holding in holdings:
+            if etf_position_symbol in holding.tickers:
                 shares_in_common.append(etf_position_symbol)
-                portfolio_position_weight = stock.portfolio_percentage
+                portfolio_position_weight = holding.portfolio_percentage
                 ind_overlap = min(etf_position_weight, portfolio_position_weight)
                 individual_overlaps.append(ind_overlap)
                 # overlap_sum += ind_overlap
@@ -186,13 +188,13 @@ def get_fund_data(issuer, url):
     return fund_data
 
 
-def get_matching_etfs(stocks):
+def get_matching_etfs(holdings):
     matching_etfs = {}
     for etf_ticker in tqdm(ETF_LIST):
         etf_data = get_fund_data(
             ETF_LIST[etf_ticker]["issuer"], ETF_LIST[etf_ticker]["url"]
         )
-        overlapping = calculate_overlapping_percentage(etf_data, stocks)
+        overlapping = calculate_overlapping_percentage(etf_data, holdings)
         matching_etfs[etf_ticker] = overlapping
 
     return matching_etfs
@@ -232,18 +234,47 @@ def collect_all_tickers_from_isin(isin):
     r = requests.post(FIGI_URL, headers=FIGI_HEADERS, data=FIGI_PAYLOAD)
 
     json_data = r.json()[0]['data']
+
     company = json_data[0]['name']
     all_tickers = []
+    main_ticker = ""
 
     for i in range(len(json_data)):
-        all_tickers.append(json_data[i]['ticker'])
+        ticker = json_data[i]['ticker']
+        if "/" in ticker:
+            ticker = ticker.replace("/", ".")
 
-    return company, list(set(all_tickers))
+        if json_data[i]['exchCode'] == 'US':
+            main_ticker = ticker
+        all_tickers.append(ticker)
+
+    return company, list(set(all_tickers)), main_ticker
+
+# Get stock quote from yahoo
+def get_stock_quote(ticker, av_key):
+    URL = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol="+ ticker +"&apikey=" + av_key
+    r = requests.get(URL)
+    quote = float(r.json()["Global Quote"]["05. price"])
+    return quote
+
+def calculate_holding_percentage(holdings):
+    portfolio_sum = 0
+    for holding in holdings:
+        portfolio_sum += holding.quantity * holding.price
+    
+    for holding in holdings:
+        holding.portfolio_percentage = holding.quantity * holding.price / portfolio_sum * 100
+    
+    return holdings
+
 
 if __name__ == "__main__":
     pp = pprint.PrettyPrinter(indent=4)
+    load_dotenv()
 
-    stocks = []
+    av_key = os.getenv("ALPHAVANTAGE_KEY")
+
+    holdings = []
     collecting_tickers_successful = True
 
     portfolio_data_yaml = ""
@@ -255,16 +286,19 @@ if __name__ == "__main__":
 
     for isin in p_bar:
         try:
-            company_name, tickers = collect_all_tickers_from_isin(isin)
-            stock = Stock(company_name, isin, tickers, portfolio_data_yaml[isin])
-            stocks.append(stock)
-            p_bar.set_postfix_str(f"{company_name}")
-            sleep(14)
+            company_name, tickers, main_ticker = collect_all_tickers_from_isin(isin)
+            p_bar.set_postfix_str(f"Collected {company_name}")
         except json.decoder.JSONDecodeError:
             print("Too many requests. Try again later or increase sleep.")
             collecting_tickers_successful = False
             break
+
+        stock_quote = get_stock_quote(main_ticker, av_key)
+        holding = Holding(company_name, isin, main_ticker, tickers, portfolio_data_yaml[isin], stock_quote)
+        holdings.append(holding)
+        sleep(12)
     
     if collecting_tickers_successful:
-        matching_etfs = get_matching_etfs(stocks)
+        holdings = calculate_holding_percentage(holdings)
+        matching_etfs = get_matching_etfs(holdings)
         beautiful_output(matching_etfs)

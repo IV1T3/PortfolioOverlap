@@ -7,3 +7,4 @@ openpyxl
 pyexcel
 pyexcel-xls
 pyyaml
+python-dotenv
