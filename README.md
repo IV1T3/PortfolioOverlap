@@ -28,15 +28,13 @@ Currently, 68 of the most popular ETFs from iShares, ARK and Lyxor are supported
 | Lyxor MSCI World Energy TR UCITS ETF     | LYPC   |
 | ...                                      | ...    |
 
-First, customize the file `portfoliooverlap/portfolio.py` to resemble your stock portfolio such as
+First, customize the file `portfolio.yml` to resemble your stock portfolio such as
 
-```python
-PORTFOLIO_DATA = {
-    "US0378331005": 25.0, # AAPL
-    "US5949181045": 25.0, # MSFT
-    "US0231351067": 25.0, # AMZN
-    "US88160R1014": 25.0, # TSLA
-}
+```yaml
+'US0378331005': 25.0 # AAPL
+'US5949181045': 25.0 # MSFT
+'US0231351067': 25.0 # AMZN
+'US88160R1014': 25.0 # TSLA
 ```
 
 Then, run the tool
