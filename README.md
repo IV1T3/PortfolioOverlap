@@ -2,20 +2,6 @@
 
 _PortfolioOverlap_ is a CLI tool that helps you to compare the weighted holdings of your stock portfolio with popular Exchange Traded Funds (ETFs) to distinguish overlaps.
 
-## Installation
-
-The Python _virtualenv_ is recommended to use as a Python environment. This project requires Python3.
-
-```console
-$ git clone https://github.com/IV1T3/PortfolioOverlap.git
-$ cd PortfolioOverlap
-$ virtualenv venv
-$ source venv/bin/activate
-$ pip3 install -r requirements.txt
-```
-
-## How to use
-
 Currently, 68 of the most popular ETFs from iShares, ARK and Lyxor are supported:
 
 | ETF                                      | Ticker |
@@ -27,6 +13,19 @@ Currently, 68 of the most popular ETFs from iShares, ARK and Lyxor are supported
 | ...                                      | ...    |
 | Lyxor MSCI World Energy TR UCITS ETF     | LYPC   |
 | ...                                      | ...    |
+## Installation
+
+The Python _virtualenv_ is recommended to use as a Python environment. This project requires Python3.
+
+```console
+git clone https://github.com/IV1T3/PortfolioOverlap.git
+cd PortfolioOverlap
+virtualenv venv
+source venv/bin/activate
+pip3 install -r requirements.txt
+```
+
+## How to use
 
 First, insert your stock portfolio into the file `portfolio.yml` in the format ```ISIN: number of shares held```. It is recommended to append the stock ticker symbol as a comment to the end of the line to make it easier identifying the stock.
 
@@ -45,7 +44,7 @@ ALPHAVANTAGE_KEY = "API_KEY"
 Then, run the tool
 
 ```console
-$ python3 portfoliooverlap/main.py
+python3 portfoliooverlap/main.py
 ```
 
 Using the portfolio above yields
