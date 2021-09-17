@@ -28,13 +28,13 @@ Currently, 68 of the most popular ETFs from iShares, ARK and Lyxor are supported
 | Lyxor MSCI World Energy TR UCITS ETF     | LYPC   |
 | ...                                      | ...    |
 
-First, customize the file `portfolio.yml` to resemble your stock portfolio such as
+First, insert your stock portfolio into the file `portfolio.yml` in the format ```ISIN: number of shares held```. It is recommended to append the stock ticker symbol as a comment to the end of the line to make it easier identifying the stock.
 
 ```yaml
-'US0378331005': 25.0 # AAPL
-'US5949181045': 25.0 # MSFT
-'US0231351067': 25.0 # AMZN
-'US88160R1014': 25.0 # TSLA
+'US0378331005': 1.0 # AAPL
+'US5949181045': 2.0 # MSFT
+'US0231351067': 3.0 # AMZN
+'US88160R1014': 4.0 # TSLA
 ```
 
 Then, run the tool
@@ -49,16 +49,16 @@ the following insights
 ```
 ETFs sorted by weighted overlap in descending order
 ----
-iShares S&P 500 Information Technology Sector UCITS ETF
-Overlap: 42.0621%
-Overlapping holdings: ['AAPL', 'MSFT']
-----
 iShares NASDAQ 100 UCITS ETF
-Overlap: 33.22%
+Overlap: 17.1981%
 Overlapping holdings: ['AAPL', 'MSFT', 'AMZN', 'TSLA']
 ----
-iShares S&P 500 Paris-Aligned Climate UCITS ETF
-Overlap: 19.3978%
+iShares MSCI USA ESG Screened UCITS ETF
+Overlap: 10.9532%
+Overlapping holdings: ['AAPL', 'MSFT', 'AMZN', 'TSLA']
+----
+iShares Core S&P 500 UCITS ETF
+Overlap: 10.8088%
 Overlapping holdings: ['AAPL', 'MSFT', 'AMZN', 'TSLA']
 ----
 ...
