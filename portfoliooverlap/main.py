@@ -6,6 +6,9 @@ import io
 import PyPDF2
 import requests
 import json
+import yaml
+
+from yaml.loader import SafeLoader
 
 import pprint
 
@@ -244,12 +247,17 @@ if __name__ == "__main__":
     stocks = []
     collecting_tickers_successful = True
 
-    p_bar = tqdm(PORTFOLIO_DATA, desc="Collecting tickers from ISINs")
+    portfolio_data_yaml = ""
+
+    with open("portfolio.yml") as f:
+        portfolio_data_yaml = yaml.load(f, Loader=SafeLoader)
+
+    p_bar = tqdm(portfolio_data_yaml, desc="Collecting tickers from ISINs")
 
     for isin in p_bar:
         try:
             company_name, tickers = collect_all_tickers_from_isin(isin)
-            stock = Stock(company_name, isin, tickers, PORTFOLIO_DATA[isin])
+            stock = Stock(company_name, isin, tickers, portfolio_data_yaml[isin])
             stocks.append(stock)
             p_bar.set_postfix_str(f"{company_name}")
             sleep(14)
@@ -259,6 +267,5 @@ if __name__ == "__main__":
             break
     
     if collecting_tickers_successful:
-        pp.pprint(stocks)
         matching_etfs = get_matching_etfs(stocks)
         beautiful_output(matching_etfs)

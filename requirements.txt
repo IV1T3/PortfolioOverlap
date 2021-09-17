@@ -6,3 +6,4 @@ tqdm
 openpyxl
 pyexcel
 pyexcel-xls
+pyyaml
