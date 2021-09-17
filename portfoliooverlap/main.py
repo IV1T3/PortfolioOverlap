@@ -19,7 +19,6 @@ from time import sleep
 
 from data.etf_data import ETF_DATA_TEMPLATE
 from data.etf_list import ETF_LIST
-from portfolio import PORTFOLIO_DATA
 from stock import Stock
 
 # TODO:
