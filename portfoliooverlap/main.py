@@ -10,10 +10,11 @@ import json
 import pprint
 
 import pyexcel as pe
-from requests.api import get
 
 from tqdm import tqdm
 from time import sleep
+
+from tqdm.std import trange
 
 from data.etf_data import ETF_DATA_TEMPLATE
 from data.etf_list import ETF_LIST
@@ -230,17 +231,14 @@ def collect_all_tickers_from_isin(isin):
 
     r = requests.post(FIGI_URL, headers=FIGI_HEADERS, data=FIGI_PAYLOAD)
 
-    try:
-        json_data = r.json()[0]['data']
-        company = json_data[0]['name']
-        all_tickers = []
+    json_data = r.json()[0]['data']
+    company = json_data[0]['name']
+    all_tickers = []
 
-        for i in range(len(json_data)):
-            all_tickers.append(json_data[i]['ticker'])
+    for i in range(len(json_data)):
+        all_tickers.append(json_data[i]['ticker'])
 
-        return company, list(set(all_tickers))
-    except json.decoder.JSONDecodeError:
-        return None, None
+    return company, list(set(all_tickers))
 
 if __name__ == "__main__":
     pp = pprint.PrettyPrinter(indent=4)
@@ -248,16 +246,19 @@ if __name__ == "__main__":
     stocks = []
     collecting_tickers_successful = True
 
-    for isin in PORTFOLIO_DATA:
+    p_bar = tqdm(PORTFOLIO_DATA, desc="Collecting tickers from ISINs")
+
+    for isin in p_bar:
         try:
             company_name, tickers = collect_all_tickers_from_isin(isin)
             stock = Stock(company_name, isin, tickers, PORTFOLIO_DATA[isin])
             stocks.append(stock)
-            print(f"Having collected {company_name} tickers. Now sleeping for 3 seconds.")
-            sleep(3)
+            p_bar.set_postfix_str(f"{company_name}")
+            sleep(14)
         except json.decoder.JSONDecodeError:
             print("Too many requests. Try again later or increase sleep.")
             collecting_tickers_successful = False
+            break
     
     if collecting_tickers_successful:
         pp.pprint(stocks)
