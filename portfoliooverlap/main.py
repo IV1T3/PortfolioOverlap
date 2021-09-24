@@ -8,6 +8,7 @@ import requests
 import json
 import yaml
 import os
+import time
 
 from yaml.loader import SafeLoader
 
@@ -220,9 +221,11 @@ def beautiful_output(matching_etfs):
             print("----")
         else:
             no_overlap.append(etf_ticker)
-    print("No overlap found in:")
-    for no_overlap_ticker in no_overlap:
-        print(f"{no_overlap_ticker} - {ETF_LIST[no_overlap_ticker]['name']}")
+
+    if len(no_overlap) > 0:
+        print("No overlap found in:")
+        for no_overlap_ticker in no_overlap:
+            print(f"{no_overlap_ticker} - {ETF_LIST[no_overlap_ticker]['name']}")
 
 def collect_all_tickers_from_isin(isin):
     FIGI_URL = 'https://api.openfigi.com/v3/mapping'
@@ -281,23 +284,41 @@ if __name__ == "__main__":
 
     with open("portfolio.yml") as f:
         portfolio_data_yaml = yaml.load(f, Loader=SafeLoader)
+    
+    try:
+        with open("stock_data.json", "r") as f:
+            cached_stock_data = json.load(f)
+    except FileNotFoundError:
+        cached_stock_data = {}
 
     p_bar = tqdm(portfolio_data_yaml, desc="Collecting tickers from ISINs")
 
-    for isin in p_bar:
-        try:
-            company_name, tickers, main_ticker = collect_all_tickers_from_isin(isin)
-            p_bar.set_postfix_str(f"Collected {company_name}")
-        except json.decoder.JSONDecodeError:
-            print("Too many requests. Try again later or increase sleep.")
-            collecting_tickers_successful = False
-            break
+    current_time = time.time()
+    for i, isin in enumerate(p_bar):
+        sleep_required = False
+        if isin not in cached_stock_data:
+            try:
+                company_name, tickers, main_ticker = collect_all_tickers_from_isin(isin)
+                cached_stock_data[isin] = [company_name, main_ticker, tickers, [-1, -1]]
+                p_bar.set_postfix_str(f"Collected {company_name}")
+                sleep_required = True
+            except json.decoder.JSONDecodeError:
+                print("Too many requests. Try again later or increase sleep.")
+                collecting_tickers_successful = False
+                break
 
-        stock_quote = get_stock_quote(main_ticker, av_key)
-        holding = Holding(company_name, isin, main_ticker, tickers, portfolio_data_yaml[isin], stock_quote)
+        if cached_stock_data[isin][3][1] == -1 or current_time - cached_stock_data[isin][3][1] > 3600:
+            stock_quote = get_stock_quote(cached_stock_data[isin][1], av_key)
+            cached_stock_data[isin][3] = [stock_quote, current_time]
+            sleep_required = True
+        holding = Holding(cached_stock_data[isin][0], isin, cached_stock_data[isin][1], cached_stock_data[isin][2], portfolio_data_yaml[isin], cached_stock_data[isin][3][0])
         holdings.append(holding)
-        sleep(12)
+        if sleep_required and i != len(p_bar) - 1:
+            sleep(12)
     
+    with open("stock_data.json", "w") as f:
+        json.dump(cached_stock_data, f, indent=4, sort_keys=True)
+
     if collecting_tickers_successful:
         holdings = calculate_holding_percentage(holdings)
         matching_etfs = get_matching_etfs(holdings)
