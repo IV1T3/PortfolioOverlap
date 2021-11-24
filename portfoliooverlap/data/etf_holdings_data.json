@@ -393,5 +393,185 @@
             ]
         ],
         "updated": 1637708400.0
+    },
+    "US00214Q4010": {
+        "holdings": [
+            [
+                "US88160R1014",
+                "TESLA INC",
+                10.22
+            ],
+            [
+                "US19260Q1076",
+                "COINBASE GLOBAL INC",
+                6.82
+            ],
+            [
+                "US90184L1026",
+                "TWITTER INC",
+                4.83
+            ],
+            [
+                "CA82509L1076",
+                "SHOPIFY INC CLASS",
+                4.75
+            ],
+            [
+                "US87918A1051",
+                "TELADOC HEALTH INC",
+                4.7
+            ],
+            [
+                "US77543R1023",
+                "ROKU INC",
+                4.61
+            ],
+            [
+                "US98980L1017",
+                "ZOOM VIDEO",
+                4.37
+            ],
+            [
+                "LU1778762911",
+                "SPOTIFY TECHNOLOGY SA",
+                4.03
+            ],
+            [
+                "US8522341036",
+                "SQUARE INC",
+                3.65
+            ],
+            [
+                "US90138F1021",
+                "TWILIO INC",
+                3.6
+            ],
+            [
+                "US91332U1016",
+                "UNITY SOFTWARE INC",
+                3.41
+            ],
+            [
+                "US26142R1041",
+                "DRAFTKINGS INC CL",
+                3.22
+            ],
+            [
+                "US7710491033",
+                "ROBLOX CORP",
+                2.95
+            ],
+            [
+                "US90364P1057",
+                "UIPATH INC CLASS",
+                2.36
+            ],
+            [
+                "US7707001027",
+                "ROBINHOOD MARKETS INC",
+                2.18
+            ],
+            [
+                "US8486371045",
+                "SPLUNK INC",
+                2.1
+            ],
+            [
+                "US69608A1088",
+                "PALANTIR TECHNOLOGIES",
+                2.01
+            ],
+            [
+                "US29786A1060",
+                "ETSY INC",
+                1.54
+            ],
+            [
+                "US83067L1098",
+                "SKILLZ INC",
+                1.46
+            ],
+            [
+                "US2546871060",
+                "WALT DISNEY CO/THE",
+                1.45
+            ],
+            [
+                "US18915M1071",
+                "CLOUDFLARE INC CLASS",
+                1.42
+            ],
+            [
+                "US5381461012",
+                "LIVEPERSON INC",
+                1.32
+            ],
+            [
+                "US92921W3007",
+                "VUZIX CORP",
+                1.32
+            ],
+            [
+                "US69553P1003",
+                "PAGERDUTY INC",
+                1.27
+            ],
+            [
+                "US30303M1027",
+                "META PLATFORMS",
+                1.13
+            ],
+            [
+                "GG00BMF1JR16",
+                "GENIUS SPORTS LTD",
+                1.08
+            ],
+            [
+                "US58733R1023",
+                "MERCADOLIBRE INC",
+                1.03
+            ],
+            [
+                "US83304A1060",
+                "SNAP INC",
+                1.03
+            ],
+            [
+                "US2561631068",
+                "DOCUSIGN INC",
+                1.01
+            ],
+            [
+                "US92337F1075",
+                "VERACYTE INC",
+                0.97
+            ],
+            [
+                "US6792951054",
+                "OKTA INC",
+                0.96
+            ],
+            [
+                "US63008G2030",
+                "NANO DIMENSION LTD ADR",
+                0.76
+            ],
+            [
+                "US2060711023",
+                "CONCORD ACQUISITION CORP",
+                0.7
+            ],
+            [
+                "US90214J1016",
+                "2U INC",
+                0.65
+            ],
+            [
+                "IL0011762130",
+                "MONDAY.COM LTD",
+                0.54
+            ]
+        ],
+        "updated": 1637708400.0
     }
 }

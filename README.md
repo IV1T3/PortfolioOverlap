@@ -2,17 +2,19 @@
 
 _PortfolioOverlap_ is a CLI tool that helps you to compare the weighted holdings of your stock portfolio with popular Exchange Traded Funds (ETFs) to distinguish overlaps. It also features the resolution of ETFs into their individual components to help you to understand the underlying components of the ETF and find possible risk concentrations.
 
-Currently, 68 of the most popular ETFs from iShares, ARK and Lyxor are supported:
+Currently, 3 ETFs of ARK Invest are supported:
 
 | ETF                                      | Ticker |
 | ---------------------------------------- | ------ |
 | ARK INNOVATION ETF                       | ARKK   |
 | ARK Autonomous Technology & Robotics ETF | ARKQ   |
-| ...                                      | ...    |
-| iShares Core MSCI World UCITS ETF        | EUNL   |
-| ...                                      | ...    |
-| Lyxor MSCI World Energy TR UCITS ETF     | LYPC   |
-| ...                                      | ...    |
+| ARK Next Generation Internet ETF         | ARKW   |
+
+[//]: # (| ...                                      | ...    |)
+[//]: # (| iShares Core MSCI World UCITS ETF        | EUNL   |)
+[//]: # (| ...                                      | ...    |)
+[//]: # (| Lyxor MSCI World Energy TR UCITS ETF     | LYPC   |)
+[//]: # (| ...                                      | ...    |)
 ## Installation
 
 The Python _virtualenv_ is recommended to use as a Python environment. This project requires Python3.

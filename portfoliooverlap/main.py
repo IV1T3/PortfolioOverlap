@@ -61,7 +61,6 @@ def calculate_overlapping_percentage(etf_data, holdings):
 
 
 def download_etf_holdings_data(options, etf_list_yaml):
-    # etf_holdings_data = load_etf_holdings_data()
 
     download_pbar = tqdm(etf_list_yaml, desc="Updating ETF holdings")
 
@@ -71,13 +70,6 @@ def download_etf_holdings_data(options, etf_list_yaml):
             etf_obj.create(
                 etf_list_yaml[etf_isin]["issuer"], etf_list_yaml[etf_isin]["url"]
             )
-            # single_etf = ETF(etf_isin, etf_list_yaml[etf_isin]["issuer"], etf_list_yaml[etf_isin]["url"])
-            # single_etf_data = get_fund_data(
-            #     etf_list_yaml[etf_isin]["issuer"], etf_list_yaml[etf_isin]["url"]
-            # )
-            # etf_holdings_data[etf_isin] = single_etf_data
-
-            # write_etf_holdings_data(etf_holdings_data)
 
 
 def get_matching_etfs(portfolio_holdings):
@@ -244,11 +236,6 @@ def load_etf_holdings_data():
         etf_data = {}
 
     return etf_data
-
-
-def write_etf_holdings_data(etf_holdings_data):
-    with open("portfoliooverlap/data/etf_holdings_data.json", "w") as f:
-        json.dump(etf_holdings_data, f, indent=4, sort_keys=True)
 
 
 if __name__ == "__main__":

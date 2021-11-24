@@ -95,7 +95,7 @@ class ETF:
                 weight = float(raw_weight.replace(".", "").replace(",", "."))
 
             if weight > self.options["etf.minPercentage"]:
-                print(f"{holding=}")
+                # print(f"{holding=}")
 
                 name = holding[idcs[issuer]["name"]]
                 holding_ticker = holding[idcs[issuer]["ticker"]]
@@ -107,7 +107,7 @@ class ETF:
                     list(filter(lambda word: "-" not in word, name.split(" ")))
                 )
                 longest_words = sorted(name.split(" "), key=len, reverse=True)
-                print(longest_words)
+                # print(longest_words)
 
                 best_matches_not_found = True
 
@@ -127,7 +127,7 @@ class ETF:
                             best_matches_not_found = False
 
                 if not best_matches_not_found:
-                    print(best_matches)
+                    # print(best_matches)
 
                     collected_tickers = []
                     for match in best_matches:
@@ -151,7 +151,7 @@ class ETF:
                                             float(match["9. matchScore"]),
                                         ]
                                     )
-                    print(f"{collected_tickers=}")
+                    # print(f"{collected_tickers=}")
 
                     ticker_weighting = {}
                     for ticker in collected_tickers:
@@ -170,11 +170,11 @@ class ETF:
                         ticker_weighting, key=lambda ticker: ticker[1], reverse=True
                     )
 
-                    print(f"{ticker_weighting=}")
+                    # print(f"{ticker_weighting=}")
 
                     main_ticker = ticker_weighting[0][0]
 
-                    print(f"{main_ticker=}")
+                    # print(f"{main_ticker=}")
 
                     ticker_obj = Ticker(main_ticker)
                     holding_isin = ticker_obj.to_isin()
