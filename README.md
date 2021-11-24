@@ -55,19 +55,18 @@ Using the portfolio above yields
 the following insights
 
 ```
-ETFs sorted by weighted overlap in descending order
+ETFs sorted by weighted overlap in descending order (with individual equity overlap)
 ------
 ARK INNOVATION ETF
 Overlap: 13.2571%
-Top 5: TESLA INC, COINBASE GLOBAL INC, UNITY SOFTWARE INC, TELADOC HEALTH INC, ROKU INC
+Top 5: TESLA INC (10.38%), COINBASE GLOBAL INC (0.2%), UNITY SOFTWARE INC (0.19%), TELADOC HEALTH INC (0.19%), ROKU INC (0.17%)
 ------------
 ARK Next Generation Internet ETF
 Overlap: 12.8671%
-Top 5: TESLA INC, COINBASE GLOBAL INC, TWITTER INC, SHOPIFY INC CLASS, TELADOC HEALTH INC
+Top 5: TESLA INC (10.22%), COINBASE GLOBAL INC (0.2%), UNITY SOFTWARE INC (0.19%), TELADOC HEALTH INC (0.19%), ROKU INC (0.17%)
 ------------
 ARK Autonomous Technology & Robotics ETF
 Overlap: 12.3445%
-Top 5: TESLA INC, TRIMBLE INC, UIPATH INC CLASS, UNITY SOFTWARE INC, IRIDIUM COMMUNICATIONS INC
-------------
+Top 5: TESLA INC (11.59%), UNITY SOFTWARE INC (0.19%), UIPATH INC CLASS (0.11%), PALANTIR TECHNOLOGIES (0.09%), IRIDIUM COMMUNICATIONS INC (0.05%)
 ...
 ```

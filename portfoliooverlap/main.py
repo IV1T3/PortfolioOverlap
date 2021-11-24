@@ -34,9 +34,9 @@ def get_shares_in_common(portfolio_a, portfolio_b):
 
 
 def calculate_overlapping_percentage(etf_data, holdings):
-    shares_in_common = []
+    shares_in_common = {}
     total_overlap_percentage = 0.0
-    individual_overlaps = []
+    # individual_overlaps = []
     etf_holdings = etf_data["holdings"]
     etf_weight_sum = sum([position[2] for position in etf_holdings]) / 100
     portfolio_weight_sum = sum(
@@ -51,11 +51,19 @@ def calculate_overlapping_percentage(etf_data, holdings):
             if etf_position_isin == holding_isin:
                 portfolio_position_weight = holdings[holding_isin].portfolio_percentage
                 ind_overlap = min(etf_position_weight / 100, portfolio_position_weight)
-                individual_overlaps.append(ind_overlap)
-                shares_in_common.append(etf_position_name)
+
+                shares_in_common[etf_position_name] = ind_overlap
+
+                # individual_overlaps.append(ind_overlap)
+                # shares_in_common.append(etf_position_name)
     total_overlap_percentage = (
-        2 * (sum(individual_overlaps)) / (etf_weight_sum + portfolio_weight_sum)
+        2 * (sum(shares_in_common.values())) / (etf_weight_sum + portfolio_weight_sum)
     )
+
+    # print(f"{shares_in_common=}")
+    # print(f"{total_overlap_percentage=}")
+
+    # print(f"{len(shares_in_common)=}")
 
     return shares_in_common, total_overlap_percentage
 
@@ -94,9 +102,12 @@ def beautiful_output(matching_etfs, etf_list_yaml):
             matching_etfs.items(), key=lambda item: item[1][1], reverse=True
         )
     }
+
     no_overlap = []
     print("------")
-    print("ETFs sorted by weighted overlap in descending order")
+    print(
+        "ETFs sorted by weighted overlap in descending order (with individual equity overlap)"
+    )
     print("------")
     for etf_isin in sorted_etfs:
         rounded_overlap = round(sorted_etfs[etf_isin][1] * 100, 4)
@@ -109,16 +120,24 @@ def beautiful_output(matching_etfs, etf_list_yaml):
         if rounded_overlap > 0.0:
             print(etf_list_yaml[etf_isin]["name"])
             print(f"Overlap: {rounded_overlap}%")
-            # print("---")
             print(f"Top {amount_top_holdings}: ", end="")
-            for i, holding in enumerate(sorted_etfs[etf_isin][0][:amount_top_holdings]):
-                print(f"{holding}", end=", " if i < amount_top_holdings - 1 else "\n")
-            # print("---")
-            # print(
-            #     "Other overlapping holdings:",
-            #     sorted_etfs[etf_isin][0][amount_top_holdings:],
-            # )
-            # print("------------")
+
+            sorted_etf_overlapping_holdings = {
+                k: v
+                for k, v in sorted(
+                    sorted_etfs[etf_isin][0].items(),
+                    key=lambda item: item[1],
+                    reverse=True,
+                )
+            }
+
+            for i, holding_name in enumerate(
+                list(sorted_etf_overlapping_holdings.keys())[:amount_top_holdings]
+            ):
+                print(
+                    f"{holding_name} ({round(sorted_etf_overlapping_holdings[holding_name] * 100, 2)}%)",
+                    end=", " if i < amount_top_holdings - 1 else "\n",
+                )
             print("------------")
         else:
             no_overlap.append(etf_isin)
