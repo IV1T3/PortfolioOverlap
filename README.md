@@ -1,6 +1,6 @@
 # PortfolioOverlap
 
-_PortfolioOverlap_ is a CLI tool that helps you to compare the weighted holdings of your stock portfolio with popular Exchange Traded Funds (ETFs) to distinguish overlaps.
+_PortfolioOverlap_ is a CLI tool that helps you to compare the weighted holdings of your stock portfolio with popular Exchange Traded Funds (ETFs) to distinguish overlaps. It also features the resolution of ETFs into their individual components to help you to understand the underlying components of the ETF and find possible risk concentrations.
 
 Currently, 68 of the most popular ETFs from iShares, ARK and Lyxor are supported:
 
@@ -27,13 +27,14 @@ pip3 install -r requirements.txt
 
 ## How to use
 
-First, insert your stock portfolio into the file `portfolio.yml` in the format ```ISIN: number of shares held```. It is recommended to append the stock ticker symbol as a comment to the end of the line to make it easier identifying the stock.
+First, insert your portfolio into the file `portfolio.yml` in the format ```ISIN: number of shares held```. It is recommended to append the ticker symbol as a comment to the end of the line to make it easier identifying the equity. It is possible to add common stocks and ETFs to the portfolio.
 
 ```yaml
-'US0378331005': 1.0 # AAPL
-'US5949181045': 2.0 # MSFT
-'US0231351067': 3.0 # AMZN
-'US88160R1014': 4.0 # TSLA
+US0378331005: 1.0 # AAPL
+US5949181045: 2.0 # MSFT
+US0231351067: 3.0 # AMZN
+US88160R1014: 4.0 # TSLA
+US00214Q1040: 5.0 # ARKK (ETF)
 ```
 
 The tool also uses the AlphaVantage API to fetch the current price of the stocks in your portfolio. To use the API, you need to get a free API key at [AlphaVantage](https://www.alphavantage.co/support/#api-key). In the root directory of the project, create a file named `.env` and add your API key as follows:

@@ -8,3 +8,5 @@ pyexcel
 pyexcel-xls
 pyyaml
 python-dotenv
+yfinance
+investpy

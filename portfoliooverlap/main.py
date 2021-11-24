@@ -1,126 +1,27 @@
 import copy
-import cloudscraper
-import csv
-import dateparser
-import io
-import PyPDF2
-import requests
 import json
 import yaml
-import os
 import time
+
+from dotenv import load_dotenv
 
 from yaml.loader import SafeLoader
 
 import pprint
 
-import pyexcel as pe
-
 from tqdm import tqdm
-from time import sleep
-from dotenv import load_dotenv
 
-from data.etf_data import ETF_DATA_TEMPLATE
-from data.etf_list import ETF_LIST
-from holding import Holding
+from apis.alpha_vantage import AlphaVantage
 
-# TODO:
-# Rekursive ETF Aufloesung in Portfolio
-# Berechne bestes matching mit mehreren ETFs
-#   Welche ETFs zusammen bilden Portfolio am besten ab?
-#   Alle möglichen Permutationen
-#   Overlap percent maximieren
-#   Overlap holdings summe equal portfolio weight
+from primitives.holding import Holding
+from primitives.etf import ETF
+from primitives.isin import ISIN
 
 
-def chunks(lst, n):
-    return [lst[i:i + n] for i in range(0, len(lst), n)]
-
-def check_float(potential_float):
-    try:
-        float(potential_float)
-        return True
-    except ValueError:
-        return False
-
-
-def format_date(date):
-    return dateparser.parse(date).strftime("%d.%m.%Y")
-
-
-def parse_ark_pdf(pdf_content):
-    # Read data from Bytes Buffer
-    pdf_bytes_buffer = io.BytesIO(pdf_content)
-    pdf_reader = PyPDF2.PdfFileReader(pdf_bytes_buffer)
-    pdf_number_pages = pdf_reader.getNumPages()
-    pdf_text = ""
-    for i in range(pdf_number_pages):
-        pdf_text += pdf_reader.getPage(i).extractText()
-
-    text_splits = pdf_text.split("\n")
-    description = text_splits[:8]
-    ark_holdings = chunks(text_splits[8:], 7)
-
-    # Parse date into ETF structure
-    parsed_date = format_date(description[1].split(" ")[2])
-
-    # Fill ETF_DATA
-    etf_data = copy.deepcopy(ETF_DATA_TEMPLATE)
-    etf_data["date"] = parsed_date
-    ticker_index = 2
-    name_index = 1
-    weight_index = 6
-
-    for position in ark_holdings:
-        if position[0].isdigit() and check_float(position[6]):
-            symbol = position[ticker_index]
-            name = position[name_index]
-            weight = float(position[weight_index])
-            etf_data["holdings"].append([symbol, name, weight])
-
-    return etf_data
-
-
-def parse_lyxor_xls(r_content):
-    # Read data from XLS Bytes Buffer
-    key = "Holdings & Exposure Constituant"
-    book = pe.get_book_dict(file_type="xls", file_content=r_content)[key][7:]
-
-    # Parse date into ETF structure
-    parsed_date = format_date(book[0][0].split(":")[1])
-
-    # Fill ETF_DATA
-    etf_data = copy.deepcopy(ETF_DATA_TEMPLATE)
-    etf_data["date"] = parsed_date
-
-    ticker_index = 2
-    name_index = 4
-    weight_index = 5
-    lyxor_holdings = book[7:]
-    for position in lyxor_holdings:
-        symbol = position[ticker_index]
-        name = position[name_index]
-        weight = position[weight_index]
-        etf_data["holdings"].append([symbol, name, weight])
-    return etf_data
-
-
-def parse_ishares_csv(wrapper):
-    etf_data = copy.deepcopy(ETF_DATA_TEMPLATE)
-    parsed_date = format_date(wrapper[0][1])
-    etf_data["date"] = parsed_date
-    description = wrapper[2]
-    ticker_index = 0
-    name_index = 1
-    weight_index = 3 if description[3] == "Gewichtung (%)" else 4
-    for position in wrapper[3:]:
-        weight = float(position[weight_index].replace(".", "").replace(",", "."))
-        if weight > 0.0:
-            symbol = position[ticker_index]
-            name = position[name_index]
-            etf_data["holdings"].append([symbol, name, weight])
-
-    return etf_data
+def load_settings():
+    with open("portfoliooverlap/settings.json") as f:
+        settings_json = json.load(f)
+    return settings_json
 
 
 def get_shares_in_common(portfolio_a, portfolio_b):
@@ -135,21 +36,23 @@ def get_shares_in_common(portfolio_a, portfolio_b):
 def calculate_overlapping_percentage(etf_data, holdings):
     shares_in_common = []
     total_overlap_percentage = 0.0
-    # overlap_sum = 0.0
     individual_overlaps = []
     etf_holdings = etf_data["holdings"]
-    etf_weight_sum = sum([position[2] for position in etf_holdings])
-    portfolio_weight_sum = sum([holding.portfolio_percentage for holding in holdings])
+    etf_weight_sum = sum([position[2] for position in etf_holdings]) / 100
+    portfolio_weight_sum = sum(
+        [holding.portfolio_percentage for _, holding in holdings.items()]
+    )
+
     for etf_position in etf_holdings:
-        etf_position_symbol = etf_position[0]
+        etf_position_isin = etf_position[0]
+        etf_position_name = etf_position[1]
         etf_position_weight = etf_position[2]
-        for holding in holdings:
-            if etf_position_symbol in holding.tickers:
-                shares_in_common.append(etf_position_symbol)
-                portfolio_position_weight = holding.portfolio_percentage
-                ind_overlap = min(etf_position_weight, portfolio_position_weight)
+        for holding_isin in holdings:
+            if etf_position_isin == holding_isin:
+                portfolio_position_weight = holdings[holding_isin].portfolio_percentage
+                ind_overlap = min(etf_position_weight / 100, portfolio_position_weight)
                 individual_overlaps.append(ind_overlap)
-                # overlap_sum += ind_overlap
+                shares_in_common.append(etf_position_name)
     total_overlap_percentage = (
         2 * (sum(individual_overlaps)) / (etf_weight_sum + portfolio_weight_sum)
     )
@@ -157,51 +60,42 @@ def calculate_overlapping_percentage(etf_data, holdings):
     return shares_in_common, total_overlap_percentage
 
 
-def get_lyxor_fund_data(url):
-    response = requests.get(url)
-    r_content = response.content
+def download_etf_holdings_data(options, etf_list_yaml):
+    # etf_holdings_data = load_etf_holdings_data()
 
-    return parse_lyxor_xls(r_content)
+    download_pbar = tqdm(etf_list_yaml, desc="Updating ETF holdings")
 
+    for etf_isin in download_pbar:
+        etf_obj = ETF(etf_isin, options)
+        if not etf_obj.exists():
+            etf_obj.create(
+                etf_list_yaml[etf_isin]["issuer"], etf_list_yaml[etf_isin]["url"]
+            )
+            # single_etf = ETF(etf_isin, etf_list_yaml[etf_isin]["issuer"], etf_list_yaml[etf_isin]["url"])
+            # single_etf_data = get_fund_data(
+            #     etf_list_yaml[etf_isin]["issuer"], etf_list_yaml[etf_isin]["url"]
+            # )
+            # etf_holdings_data[etf_isin] = single_etf_data
 
-def get_ishares_fund_data(url):
-    response = requests.get(url)
-    wrapper = list(csv.reader(response.text.strip().split("\n")))
-
-    return parse_ishares_csv(wrapper)
-
-
-def get_ark_fund_data(url):
-    scraper = cloudscraper.create_scraper()
-    pdf_content = scraper.get(url).content
-
-    return parse_ark_pdf(pdf_content)
-
-
-def get_fund_data(issuer, url):
-    if issuer == "iShares":
-        fund_data = get_ishares_fund_data(url)
-    elif issuer == "ARK":
-        fund_data = get_ark_fund_data(url)
-    elif issuer == "Lyxor":
-        fund_data = get_lyxor_fund_data(url)
-
-    return fund_data
+            # write_etf_holdings_data(etf_holdings_data)
 
 
-def get_matching_etfs(holdings):
+def get_matching_etfs(portfolio_holdings):
     matching_etfs = {}
-    for etf_ticker in tqdm(ETF_LIST):
-        etf_data = get_fund_data(
-            ETF_LIST[etf_ticker]["issuer"], ETF_LIST[etf_ticker]["url"]
+
+    etf_holdings_data = load_etf_holdings_data()
+
+    for single_etf_isin in etf_holdings_data:
+        single_etf_holdings = etf_holdings_data[single_etf_isin]
+        overlapping = calculate_overlapping_percentage(
+            single_etf_holdings, portfolio_holdings
         )
-        overlapping = calculate_overlapping_percentage(etf_data, holdings)
-        matching_etfs[etf_ticker] = overlapping
+        matching_etfs[single_etf_isin] = overlapping
 
     return matching_etfs
 
 
-def beautiful_output(matching_etfs):
+def beautiful_output(matching_etfs, etf_list_yaml):
     sorted_etfs = {
         k: v
         for k, v in sorted(
@@ -209,117 +103,194 @@ def beautiful_output(matching_etfs):
         )
     }
     no_overlap = []
-    print("----")
+    print("------")
     print("ETFs sorted by weighted overlap in descending order")
-    print("----")
-    for etf_ticker in sorted_etfs:
-        rounded_overlap = round(sorted_etfs[etf_ticker][1] * 100, 4)
+    print("------")
+    for etf_isin in sorted_etfs:
+        rounded_overlap = round(sorted_etfs[etf_isin][1] * 100, 4)
+        amount_top_holdings = (
+            5 if len(sorted_etfs[etf_isin][0]) > 5 else len(sorted_etfs[etf_isin][0])
+        )
+        # TODO: ARK Innovation for example a bit above 100% overlap??
+        if rounded_overlap > 100:
+            rounded_overlap = 100.0
         if rounded_overlap > 0.0:
-            print(ETF_LIST[etf_ticker]["name"])
+            print(etf_list_yaml[etf_isin]["name"])
             print(f"Overlap: {rounded_overlap}%")
-            print("Overlapping holdings:", sorted_etfs[etf_ticker][0])
-            print("----")
+            print("---")
+            print(f"Top {amount_top_holdings} overlapping holdings:")
+            for i, holding in enumerate(sorted_etfs[etf_isin][0]):
+                if i < amount_top_holdings:
+                    print(f"{i+1}. {holding}")
+            print("---")
+            print(
+                "Other overlapping holdings:",
+                sorted_etfs[etf_isin][0][amount_top_holdings:],
+            )
+            print("------------")
+            print("------------")
         else:
-            no_overlap.append(etf_ticker)
+            no_overlap.append(etf_isin)
 
     if len(no_overlap) > 0:
         print("No overlap found in:")
-        for no_overlap_ticker in no_overlap:
-            print(f"{no_overlap_ticker} - {ETF_LIST[no_overlap_ticker]['name']}")
+        for no_overlap_isin in no_overlap:
+            print(f"{no_overlap_isin} - {etf_list_yaml[no_overlap_isin]['name']}")
 
-def collect_all_tickers_from_isin(isin):
-    FIGI_URL = 'https://api.openfigi.com/v3/mapping'
-    FIGI_HEADERS = {
-        'Content-Type':'application/json'
-    }
-    FIGI_PAYLOAD = '[{"idType":"ID_ISIN","idValue":"'+ isin +'"}]'
-
-    r = requests.post(FIGI_URL, headers=FIGI_HEADERS, data=FIGI_PAYLOAD)
-
-    json_data = r.json()[0]['data']
-
-    company = json_data[0]['name']
-    all_tickers = []
-    main_ticker = ""
-
-    for i in range(len(json_data)):
-        ticker = json_data[i]['ticker']
-        if "/" in ticker:
-            ticker = ticker.replace("/", ".")
-
-        if json_data[i]['exchCode'] == 'US':
-            main_ticker = ticker
-        all_tickers.append(ticker)
-
-    return company, list(set(all_tickers)), main_ticker
-
-# Get stock quote from yahoo
-def get_stock_quote(ticker, av_key):
-    URL = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol="+ ticker +"&apikey=" + av_key
-    r = requests.get(URL)
-    quote = float(r.json()["Global Quote"]["05. price"])
-    return quote
 
 def calculate_holding_percentage(holdings):
     portfolio_sum = 0
-    for holding in holdings:
+
+    for _, holding in holdings.items():
         portfolio_sum += holding.quantity * holding.price
-    
-    for holding in holdings:
-        holding.portfolio_percentage = holding.quantity * holding.price / portfolio_sum * 100
-    
+
+    for _, holding in holdings.items():
+        holding.portfolio_percentage = holding.quantity * holding.price / portfolio_sum
+
     return holdings
+
+
+def get_cached_holdings_of_single_etf(isin):
+    etf_holdings_data = load_etf_holdings_data()
+
+    if isin in etf_holdings_data:
+        return etf_holdings_data[isin]["holdings"]
+    else:
+        return None
+
+
+def resolve_etfs_into_individual_holdings(holdings):
+
+    resolved_holdings = copy.deepcopy(holdings)
+
+    resolving_pbar = tqdm(holdings, desc="Resolving ETFs")
+
+    for holding_isin in resolving_pbar:
+        if holdings[holding_isin].is_etf:
+            # print(f"{holdings[holding_isin].name} is an ETF. Resolving...")
+            # if get_quote_type(holdings[holding_isin].main_ticker) == "ETF":
+            single_etf_holdings = get_cached_holdings_of_single_etf(holding_isin)
+
+            # print(f"{single_etf_holdings=}")
+
+            if single_etf_holdings is None:
+                print(
+                    f"{holdings[holding_isin].name} is currently not supported. Aborting Resolution."
+                )
+            else:
+                for single_etf_position in single_etf_holdings:
+                    single_etf_position_isin = single_etf_position[0]
+                    single_etf_position_name = single_etf_position[1]
+                    single_etf_position_percentage = single_etf_position[2]
+
+                    etf_position_appending_percentage = (
+                        holdings[holding_isin].portfolio_percentage
+                        * single_etf_position_percentage
+                        / 100
+                    )
+
+                    if single_etf_position_isin in holdings:
+                        resolved_holdings[
+                            single_etf_position_isin
+                        ].portfolio_percentage += etf_position_appending_percentage
+
+                        # TODO: Calc correct quantity
+                        # holdings[single_etf_position_isin].quantity += 0
+                    else:
+                        # print(f"Adding {single_etf_position_name} to holdings...")
+                        # print(f"{single_etf_position_name} quantity: ??")
+                        # print(f"{single_etf_position_name} price: ??")
+
+                        isin_obj = ISIN(single_etf_position_isin)
+                        resolved_holdings[single_etf_position_isin] = Holding(
+                            name=single_etf_position_name,
+                            isin=single_etf_position_isin,
+                            main_ticker=isin_obj.to_ticker(),
+                            tickers=isin_obj.to_ticker(all_tickers=True),
+                            # TODO: Calc correct quantity and fetch price
+                            quantity=0.0,
+                            price=0.0,
+                            # TODO: ETF might contain another ETF!
+                            is_etf=False,
+                            portfolio_percentage=etf_position_appending_percentage,
+                        )
+
+                resolved_holdings[holding_isin].quantity = 0.0
+                resolved_holdings[holding_isin].portfolio_percentage = 0.0
+                resolved_holdings[holding_isin].etf_resolved = True
+
+    return resolved_holdings
+
+
+def load_portfolio():
+    with open("portfolio.yml") as f:
+        portfolio_data_yaml = yaml.load(f, Loader=SafeLoader)
+    return portfolio_data_yaml
+
+
+def load_etf_list():
+    with open("portfoliooverlap/data/etf_list.yml") as f:
+        etf_list_yaml = yaml.load(f, Loader=SafeLoader)
+    return etf_list_yaml
+
+
+def load_etf_holdings_data():
+    try:
+        with open("portfoliooverlap/data/etf_holdings_data.json", "r") as f:
+            etf_data = json.load(f)
+    except json.decoder.JSONDecodeError:
+        etf_data = {}
+    except FileNotFoundError:
+        etf_data = {}
+
+    return etf_data
+
+
+def write_etf_holdings_data(etf_holdings_data):
+    with open("portfoliooverlap/data/etf_holdings_data.json", "w") as f:
+        json.dump(etf_holdings_data, f, indent=4, sort_keys=True)
 
 
 if __name__ == "__main__":
     pp = pprint.PrettyPrinter(indent=4)
+    current_time = time.time()
     load_dotenv()
 
-    av_key = os.getenv("ALPHAVANTAGE_KEY")
-
-    holdings = []
+    portfolio_holdings = {}
     collecting_tickers_successful = True
 
-    portfolio_data_yaml = ""
+    options = load_settings()
+    portfolio_data_yaml = load_portfolio()
+    etf_list_yaml = load_etf_list()
 
-    with open("portfolio.yml") as f:
-        portfolio_data_yaml = yaml.load(f, Loader=SafeLoader)
-    
-    try:
-        with open("stock_data.json", "r") as f:
-            cached_stock_data = json.load(f)
-    except FileNotFoundError:
-        cached_stock_data = {}
+    portfolio_isin_pbar = tqdm(portfolio_data_yaml, desc="Collecting stock information")
 
-    p_bar = tqdm(portfolio_data_yaml, desc="Collecting tickers from ISINs")
+    # Fetching tickers
+    for i, isin in enumerate(portfolio_isin_pbar):
+        isin_obj = ISIN(isin)
+        if not isin_obj.exists():
+            isin_obj.create()
 
-    current_time = time.time()
-    for i, isin in enumerate(p_bar):
-        sleep_required = False
-        if isin not in cached_stock_data:
-            try:
-                company_name, tickers, main_ticker = collect_all_tickers_from_isin(isin)
-                cached_stock_data[isin] = [company_name, main_ticker, tickers, [-1, -1]]
-                p_bar.set_postfix_str(f"Collected {company_name}")
-                sleep_required = True
-            except json.decoder.JSONDecodeError:
-                print("Too many requests. Try again later or increase sleep.")
-                collecting_tickers_successful = False
-                break
-
-        if cached_stock_data[isin][3][1] == -1 or current_time - cached_stock_data[isin][3][1] > 3600:
-            stock_quote = get_stock_quote(cached_stock_data[isin][1], av_key)
-            cached_stock_data[isin][3] = [stock_quote, current_time]
-            sleep_required = True
-        holding = Holding(cached_stock_data[isin][0], isin, cached_stock_data[isin][1], cached_stock_data[isin][2], portfolio_data_yaml[isin], cached_stock_data[isin][3][0])
-        holdings.append(holding)
-        if sleep_required and i != len(p_bar) - 1:
-            sleep(12)
-    
-    with open("stock_data.json", "w") as f:
-        json.dump(cached_stock_data, f, indent=4, sort_keys=True)
+    # Preparing portfolio holdings
+    holdings_pbar = tqdm(portfolio_data_yaml, desc="Preparing holdings")
+    for i, isin in enumerate(holdings_pbar):
+        isin_obj = ISIN(isin)
+        holding = Holding(
+            name=isin_obj.get_name(),
+            isin=isin,
+            main_ticker=isin_obj.to_ticker(),
+            tickers=isin_obj.to_ticker(all_tickers=True),
+            quantity=portfolio_data_yaml[isin],
+            price=isin_obj.get_quote(),
+            is_etf=isin_obj.is_etf(),
+        )
+        portfolio_holdings[isin] = holding
 
     if collecting_tickers_successful:
-        holdings = calculate_holding_percentage(holdings)
-        matching_etfs = get_matching_etfs(holdings)
-        beautiful_output(matching_etfs)
+        download_etf_holdings_data(options, etf_list_yaml)
+
+        portfolio_holdings = calculate_holding_percentage(portfolio_holdings)
+        portfolio_holdings = resolve_etfs_into_individual_holdings(portfolio_holdings)
+
+        matching_etfs = get_matching_etfs(portfolio_holdings)
+        beautiful_output(matching_etfs, etf_list_yaml)

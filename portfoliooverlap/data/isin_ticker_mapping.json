@@ -1,0 +1,811 @@
+{
+    "CA5592224011": [
+        "Magna International Inc.",
+        "MGA",
+        [
+            "MGA"
+        ],
+        1637746746.236879
+    ],
+    "CA82509L1076": [
+        "Shopify Inc.",
+        "SHOP",
+        [
+            "SHOP"
+        ],
+        1637740833.4934442
+    ],
+    "CH0334081137": [
+        "CRISPR Therapeutics AG",
+        "CRSP",
+        [
+            "CRSP"
+        ],
+        1637742337.740459
+    ],
+    "IE00BZ12WP82": [
+        "Linde PLC",
+        "LIN",
+        [
+            "LIN",
+            "LINI"
+        ],
+        false,
+        1637745609.376579
+    ],
+    "IL0010811243": [
+        "Elbit Systems Ltd.",
+        "ESLT",
+        [
+            "ESLT"
+        ],
+        1637746857.0593998
+    ],
+    "IL0010852080": [
+        "Compugen Ltd.",
+        "CGEN",
+        [
+            "CGEN"
+        ],
+        1637744589.5776699
+    ],
+    "IL0011267213": [
+        "Stratasys Ltd.",
+        "SSYS",
+        [
+            "SSYS"
+        ],
+        1637742778.9802399
+    ],
+    "JP3304200003": [
+        "Komatsu Ltd.",
+        "KMTUF",
+        [
+            "KMTUF"
+        ],
+        1637741715.2022982
+    ],
+    "KYG5074S1012": [
+        "JD Logistics, Inc.",
+        "JDLGF",
+        [
+            "JDLGF"
+        ],
+        1637741757.436369
+    ],
+    "LU1778762911": [
+        "Spotify Technology S.A.",
+        "SPOT",
+        [
+            "SPOT"
+        ],
+        1637740913.160375
+    ],
+    "US00214Q1040": [
+        "ARK Innovation",
+        "ARKK",
+        [
+            "ARKK"
+        ],
+        true,
+        1637736698.87662
+    ],
+    "US00214Q5009": [
+        "The 3D Printing ETF",
+        "PRNT",
+        [
+            "PRNT"
+        ],
+        1637741138.034647
+    ],
+    "US0080731088": [
+        "AeroVironment, Inc.",
+        "AVAV",
+        [
+            "AVAV"
+        ],
+        1637746679.1646552
+    ],
+    "US02079K1079": [
+        "Alphabet Inc.",
+        "GOOG",
+        [
+            "GOOG"
+        ],
+        1637746763.474678
+    ],
+    "US0231351067": [
+        "Amazon.com Inc",
+        "AMZN",
+        [
+            "AMZNUSD",
+            "AMZN"
+        ],
+        false,
+        1637736673.4565399
+    ],
+    "US03662Q1058": [
+        "ANSYS, Inc.",
+        "ANSS",
+        [
+            "ANSS"
+        ],
+        1637746994.627306
+    ],
+    "US0378331005": [
+        "Apple Inc",
+        "AAPL",
+        [
+            "AAPLE",
+            "AAPL",
+            "AAPLEUR",
+            "AAPLUSD"
+        ],
+        false,
+        1637736637.4633222
+    ],
+    "US0567521085": [
+        "Baidu, Inc.",
+        "BIDU",
+        [
+            "BIDU"
+        ],
+        1637746883.143023
+    ],
+    "US07373V1052": [
+        "Beam Therapeutics Inc.",
+        "BEAM",
+        [
+            "BEAM"
+        ],
+        1637742308.365375
+    ],
+    "US0843101017": [
+        "Berkeley Lights, Inc.",
+        "BLI",
+        [
+            "BLI"
+        ],
+        1637742755.00986
+    ],
+    "US0846707026": [
+        "Berkshire Hathaway Inc",
+        "BRKB",
+        [
+            "BRKb",
+            "BRKB"
+        ],
+        false,
+        1637745571.186501
+    ],
+    "US0926671043": [
+        "Blade Air Mobility, Inc.",
+        "BLDE",
+        [
+            "BLDE"
+        ],
+        1637746780.1618009
+    ],
+    "US1101221083": [
+        "Bristol-Myers Squibb Company",
+        "BMY",
+        [
+            "BMYUSD",
+            "BMY"
+        ],
+        false,
+        1637746135.7355468
+    ],
+    "US1491231015": [
+        "Caterpillar Inc.",
+        "CAT",
+        [
+            "CAT"
+        ],
+        1637746833.073076
+    ],
+    "US1570851014": [
+        "Cerus Corporation",
+        "CERS",
+        [
+            "CERS"
+        ],
+        1637742873.539993
+    ],
+    "US19260Q1076": [
+        "COINBASE GLOBAL INC -CLASS A",
+        "COIN",
+        [
+            "1QZD",
+            "COIN4EUR",
+            "COIN4GBP",
+            "1QZ",
+            "COIN4USD",
+            "COIN",
+            "COIN-RM"
+        ],
+        1637736742.18768,
+        1637745477.8260329
+    ],
+    "US2441991054": [
+        "Deere & Company",
+        "DE",
+        [
+            "DE"
+        ],
+        1637746588.328119
+    ],
+    "US2546871060": [
+        "Walt Disney Company",
+        "DIS",
+        [
+            "DIS",
+            "DISUSD"
+        ],
+        false,
+        1637746164.2666361
+    ],
+    "US2561631068": [
+        "DocuSign, Inc.",
+        "DOCU",
+        [
+            "DOCU"
+        ],
+        1637742436.3796859
+    ],
+    "US26142R1041": [
+        "DraftKings Inc.",
+        "DKNG",
+        [
+            "DKNG"
+        ],
+        1637742369.062539
+    ],
+    "US28106W1036": [
+        "Editas Medicine, Inc.",
+        "EDIT",
+        [
+            "EDIT"
+        ],
+        1637742685.63103
+    ],
+    "US30063P1057": [
+        "Exact Sciences Corporation",
+        "EXAS",
+        [
+            "EXAS"
+        ],
+        1637740970.509064
+    ],
+    "US31189P1021": [
+        "Fate Therapeutics, Inc.",
+        "FATE",
+        [
+            "FATE"
+        ],
+        1637741028.0262752
+    ],
+    "US37611X1000": [
+        "Ginkgo Bioworks Holdings, Inc.",
+        "DNA",
+        [
+            "DNA"
+        ],
+        1637742548.724038
+    ],
+    "US4370761029": [
+        "Home Depot Inc",
+        "HD",
+        [
+            "HD",
+            "HDUSD"
+        ],
+        false,
+        1637745659.610832
+    ],
+    "US4523271090": [
+        "Illumina Inc",
+        "ILMN",
+        [
+            "ILMN"
+        ],
+        false,
+        1637745583.660631
+    ],
+    "US45826J1051": [
+        "Intellia Therapeutics, Inc.",
+        "NTLA",
+        [
+            "NTLA"
+        ],
+        1637742274.862127
+    ],
+    "US46120E6023": [
+        "Intuitive Surgical, Inc.",
+        "ISRG",
+        [
+            "ISRG"
+        ],
+        1637747079.591635
+    ],
+    "US46185L1035": [
+        "Invitae Corporation",
+        "NVTA",
+        [
+            "NVTA"
+        ],
+        1637742416.996581
+    ],
+    "US4622221004": [
+        "Ionis Pharmaceuticals, Inc.",
+        "IONS",
+        [
+            "IONS"
+        ],
+        1637741011.358578
+    ],
+    "US4622601007": [
+        "Iovance Biotherapeutics, Inc.",
+        "IOVA",
+        [
+            "IOVA"
+        ],
+        1637742807.754646
+    ],
+    "US46269C1027": [
+        "Iridium Communications Inc.",
+        "IRDM",
+        [
+            "IRDM"
+        ],
+        1637739636.7512
+    ],
+    "US47215P1066": [
+        "JD.com, Inc.",
+        "JD",
+        [
+            "JD"
+        ],
+        1637740003.44118
+    ],
+    "US4781601046": [
+        "Johnson & Johnson",
+        "JNJ",
+        [
+            "JNJ",
+            "JNJUSD"
+        ],
+        false,
+        1637745647.0116081
+    ],
+    "US5004584018": [
+        "Komatsu Ltd.",
+        "KMTUY",
+        [
+            "KMTUY"
+        ],
+        1637746553.997387
+    ],
+    "US50077B2079": [
+        "Kratos Defense & Security Solutions, Inc.",
+        "KTOS",
+        [
+            "KTOS"
+        ],
+        1637739583.0422568
+    ],
+    "US5398301094": [
+        "Lockheed Martin Corp",
+        "LMT",
+        [
+            "LMT"
+        ],
+        false,
+        1637746098.181765
+    ],
+    "US57064N1028": [
+        "Markforged Holding Corporation",
+        "MKFG",
+        [
+            "MKFG"
+        ],
+        1637746637.88843
+    ],
+    "US57667T1007": [
+        "Materialise NV",
+        "MTLS",
+        [
+            "MTLS"
+        ],
+        1637742833.9685419
+    ],
+    "US58933Y1055": [
+        "Merck & Company Inc",
+        "MRK",
+        [
+            "MRK",
+            "MRKUSD"
+        ],
+        false,
+        1637745621.901168
+    ],
+    "US5949181045": [
+        "Microsoft Corp",
+        "MSFT",
+        [
+            "MSFT",
+            "MSFTUSD",
+            "MMSFT"
+        ],
+        false,
+        1637736661.005645
+    ],
+    "US63008G2030": [
+        "Nano Dimension Ltd.",
+        "NNDM",
+        [
+            "NNDM"
+        ],
+        1637746810.5452569
+    ],
+    "US6541061031": [
+        "Nike Inc",
+        "NKE",
+        [
+            "NKE",
+            "NKEUSD"
+        ],
+        false,
+        1637746190.4620092
+    ],
+    "US65481N1000": [
+        "Niu Technologies",
+        "NIU",
+        [
+            "NIU"
+        ],
+        1637746658.4726322
+    ],
+    "US67066G1040": [
+        "NVIDIA Corp",
+        "NVDA",
+        [
+            "NVDA",
+            "NNVDA"
+        ],
+        false,
+        1637746177.3288581
+    ],
+    "US68620A2033": [
+        "Organovo Holdings, Inc.",
+        "ONVO",
+        [
+            "ONVO"
+        ],
+        1637747180.440293
+    ],
+    "US69404D1081": [
+        "Pacific Biosciences of California",
+        "PACB",
+        [
+            "PACB"
+        ],
+        1637740993.7530189,
+        1637746320.7718499
+    ],
+    "US69553P1003": [
+        "PagerDuty, Inc.",
+        "PD",
+        [
+            "PD"
+        ],
+        1637742513.6271842
+    ],
+    "US69608A1088": [
+        "PALANTIR TECHNOLOGIES INC-A",
+        "PLTR",
+        [
+            "PLTRRUB",
+            "PTX",
+            "PLTREUR",
+            "PLTR*",
+            "PLTR-RM",
+            "PTXD",
+            "0A7R",
+            "PLTRUSD",
+            "0QYKL",
+            "PLTRGBP",
+            "PLTR",
+            "0A7RL"
+        ],
+        1637742291.335465,
+        1637746248.598987
+    ],
+    "US7427181091": [
+        "Procter & Gamble Company",
+        "PG",
+        [
+            "PGUSD",
+            "PG"
+        ],
+        false,
+        1637745634.3726761
+    ],
+    "US7437131094": [
+        "Proto Labs, Inc.",
+        "PRLB",
+        [
+            "PRLB"
+        ],
+        1637747052.373461
+    ],
+    "US7707001027": [
+        "Robinhood Markets, Inc.",
+        "HOOD",
+        [
+            "HOOD"
+        ],
+        1637742454.132492
+    ],
+    "US77543R1023": [
+        "Roku, Inc.",
+        "ROKU",
+        [
+            "ROKU"
+        ],
+        1637740868.8320608
+    ],
+    "US79466L3024": [
+        "Salesforce.com Inc",
+        "CRM",
+        [
+            "CRME",
+            "CRMS",
+            "CRM"
+        ],
+        false,
+        1637746203.269535
+    ],
+    "US82671G1004": [
+        "Signify Health, Inc.",
+        "SGFY",
+        [
+            "SGFY"
+        ],
+        1637742639.5204558
+    ],
+    "US83067L1098": [
+        "Skillz Inc.",
+        "SKLZ",
+        [
+            "SKLZ"
+        ],
+        1637742612.415266
+    ],
+    "US8522341036": [
+        "SQUARE INC - A",
+        "SQ",
+        [
+            "SQJPY",
+            "SQGBP",
+            "SQ*",
+            "SQ",
+            "SQUSD",
+            "SQRUB",
+            "SQ3",
+            "SQU",
+            "SQN",
+            "0L95",
+            "SQEUR",
+            "4529264Z",
+            "SQ-RM"
+        ],
+        1637741044.630743,
+        1637746308.316929
+    ],
+    "US8552441094": [
+        "Starbucks Corp",
+        "SBUX",
+        [
+            "SBUX",
+            "SBUXUSD",
+            "SSBUX"
+        ],
+        false,
+        1637746217.807552
+    ],
+    "US8636671013": [
+        "Stryker Corp",
+        "SYK",
+        [
+            "SYK"
+        ],
+        false,
+        1637745596.926599
+    ],
+    "US8716071076": [
+        "Synopsys, Inc.",
+        "SNPS",
+        [
+            "SNPS"
+        ],
+        1637746952.89151
+    ],
+    "US87918A1051": [
+        "Teladoc Health, Inc.",
+        "TDOC",
+        [
+            "TDOC"
+        ],
+        1637740850.854348
+    ],
+    "US8793601050": [
+        "Teledyne Technologies Incorporated",
+        "TDY",
+        [
+            "TDY"
+        ],
+        1637746929.8678558
+    ],
+    "US88025U1097": [
+        "10X GENOMICS INC-CLASS A",
+        "TXG",
+        [
+            "0A88",
+            "TXG1MXN",
+            "TXG1GBP",
+            "TXG",
+            "TXG1EUR",
+            "1KJ",
+            "TXG1USD",
+            "TXG*"
+        ],
+        1637742398.760065,
+        1637746277.992477
+    ],
+    "US8807701029": [
+        "Teradyne, Inc.",
+        "TER",
+        [
+            "TER"
+        ],
+        1637746618.466308
+    ],
+    "US88160R1014": [
+        "Tesla Inc",
+        "TSLA",
+        [
+            "TSLA",
+            "TSLAUSD",
+            "TTSLA"
+        ],
+        false,
+        1637736686.198401
+    ],
+    "US8825081040": [
+        "Texas Instruments Incorporated",
+        "TXN",
+        [
+            "TXN"
+        ],
+        false,
+        1637746085.6533
+    ],
+    "US88554D2053": [
+        "3D Systems Corporation",
+        "DDD",
+        [
+            "DDD"
+        ],
+        1637742918.9927921
+    ],
+    "US8962391004": [
+        "Trimble Inc.",
+        "TRMB",
+        [
+            "TRMB"
+        ],
+        1637739565.4202518
+    ],
+    "US90089L1089": [
+        "TuSimple Holdings Inc.",
+        "TSP",
+        [
+            "TSP"
+        ],
+        1637742489.907354
+    ],
+    "US90138F1021": [
+        "Twilio Inc.",
+        "TWLO",
+        [
+            "TWLO"
+        ],
+        1637741087.270356
+    ],
+    "US90184D1000": [
+        "TWIST BIOSCIENCE CORP",
+        "TWST",
+        [
+            "TWST",
+            "0ME",
+            "TWSTUSD",
+            "TWSTEUR"
+        ],
+        1637742592.9540238,
+        1637746350.8213902
+    ],
+    "US90184L1026": [
+        "Twitter, Inc.",
+        "TWTR",
+        [
+            "TWTR"
+        ],
+        1637740812.651415
+    ],
+    "US90214J1016": [
+        "2U, Inc.",
+        "TWOU",
+        [
+            "TWOU"
+        ],
+        1637742709.4735801
+    ],
+    "US90364P1057": [
+        "UiPath Inc.",
+        "PATH",
+        [
+            "PATH"
+        ],
+        1637739600.071081
+    ],
+    "US91332U1016": [
+        "Unity Software Inc.",
+        "U",
+        [
+            "U"
+        ],
+        1637739617.597462
+    ],
+    "US92259N1046": [
+        "Velo3D, Inc.",
+        "VLD",
+        [
+            "VLD"
+        ],
+        1637746729.195827
+    ],
+    "US92337F1075": [
+        "Veracyte, Inc.",
+        "VCYT",
+        [
+            "VCYT"
+        ],
+        1637742570.80244
+    ],
+    "US92921W3007": [
+        "Vuzix Corporation",
+        "VUZI",
+        [
+            "VUZI"
+        ],
+        1637747018.103127
+    ],
+    "US9311421039": [
+        "Wal-Mart Stores Inc",
+        "WMT",
+        [
+            "WMT"
+        ],
+        false,
+        1637746151.4665978
+    ],
+    "US98980L1017": [
+        "Zoom Video Communications, Inc.",
+        "ZM",
+        [
+            "ZM"
+        ],
+        1637740887.254474
+    ]
+}
