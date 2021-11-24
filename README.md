@@ -90,5 +90,4 @@ Top 5 overlapping holdings:
 
 ------------
 ------------
-...
 ```
