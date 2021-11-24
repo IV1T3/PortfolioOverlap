@@ -14,11 +14,11 @@ US00214Q4010:
   name: ARK Next Generation Internet ETF
   ticker: ARKW
   url: https://ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_NEXT_GENERATION_INTERNET_ETF_ARKW_HOLDINGS.csv
-# US00214Q3020:
-#   issuer: ARK
-#   name: ARK Genomic Revolution ETF
-#   ticker: ARKG
-#   url: https://ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv
+US00214Q3020:
+  issuer: ARK
+  name: ARK Genomic Revolution ETF
+  ticker: ARKG
+  url: https://ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv
 # US00214Q7088:
 #   issuer: ARK
 #   name: ARK FINTECH INNOVATION ETF

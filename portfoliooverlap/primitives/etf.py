@@ -95,7 +95,7 @@ class ETF:
                 weight = float(raw_weight.replace(".", "").replace(",", "."))
 
             if weight > self.options["etf.minPercentage"]:
-                # print(f"{holding=}")
+                print(f"{holding=}")
 
                 name = holding[idcs[issuer]["name"]]
                 holding_ticker = holding[idcs[issuer]["ticker"]]
@@ -170,11 +170,11 @@ class ETF:
                         ticker_weighting, key=lambda ticker: ticker[1], reverse=True
                     )
 
-                    # print(f"{ticker_weighting=}")
+                    print(f"{ticker_weighting=}")
 
                     main_ticker = ticker_weighting[0][0]
 
-                    # print(f"{main_ticker=}")
+                    print(f"{main_ticker=}")
 
                     ticker_obj = Ticker(main_ticker)
                     holding_isin = ticker_obj.to_isin()
@@ -199,6 +199,10 @@ class ETF:
 
         self.all_cached_etf_holdings[self.isin] = etf_holdings
 
-        write_json_data("etf_holdings_data", self.all_cached_etf_holdings)
+        write_json_data(
+            "etf_holdings_data",
+            self.all_cached_etf_holdings,
+            self.options["io.saveHumanReadable"],
+        )
 
         return etf_holdings

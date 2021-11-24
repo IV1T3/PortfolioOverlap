@@ -2,13 +2,14 @@
 
 _PortfolioOverlap_ is a CLI tool that helps you to compare the weighted holdings of your stock portfolio with popular Exchange Traded Funds (ETFs) to distinguish overlaps. It also features the resolution of ETFs into their individual components to help you to understand the underlying components of the ETF and find possible risk concentrations.
 
-Currently, 3 ETFs of ARK Invest are supported:
+Currently, 4 ETFs of ARK Invest are supported:
 
 | ETF                                      | Ticker |
 | ---------------------------------------- | ------ |
 | ARK INNOVATION ETF                       | ARKK   |
 | ARK Autonomous Technology & Robotics ETF | ARKQ   |
 | ARK Next Generation Internet ETF         | ARKW   |
+| ARK Genomic Revolution ETF               | ARKW   |
 
 [//]: # (| ...                                      | ...    |)
 [//]: # (| iShares Core MSCI World UCITS ETF        | EUNL   |)
@@ -58,36 +59,15 @@ ETFs sorted by weighted overlap in descending order
 ------
 ARK INNOVATION ETF
 Overlap: 13.2571%
----
-Top 5 overlapping holdings:
-1. TESLA INC
-2. COINBASE GLOBAL INC
-3. UNITY SOFTWARE INC
-4. TELADOC HEALTH INC
-5. ROKU INC
-------------
+Top 5: TESLA INC, COINBASE GLOBAL INC, UNITY SOFTWARE INC, TELADOC HEALTH INC, ROKU INC
 ------------
 ARK Next Generation Internet ETF
 Overlap: 12.8671%
----
-Top 5 overlapping holdings:
-1. TESLA INC
-2. COINBASE GLOBAL INC
-3. TWITTER INC
-4. SHOPIFY INC CLASS
-5. TELADOC HEALTH INC
-------------
+Top 5: TESLA INC, COINBASE GLOBAL INC, TWITTER INC, SHOPIFY INC CLASS, TELADOC HEALTH INC
 ------------
 ARK Autonomous Technology & Robotics ETF
 Overlap: 12.3445%
----
-Top 5 overlapping holdings:
-1. TESLA INC
-2. TRIMBLE INC
-3. UIPATH INC CLASS
-4. UNITY SOFTWARE INC
-5. IRIDIUM COMMUNICATIONS INC
-
+Top 5: TESLA INC, TRIMBLE INC, UIPATH INC CLASS, UNITY SOFTWARE INC, IRIDIUM COMMUNICATIONS INC
 ------------
-------------
+...
 ```

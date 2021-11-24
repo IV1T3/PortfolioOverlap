@@ -57,6 +57,14 @@
         ],
         1637744589.5776699
     ],
+    "IL0011050551": [
+        "Evogene Ltd.",
+        "EVGN",
+        [
+            "EVGN"
+        ],
+        1637750695.3321228
+    ],
     "IL0011267213": [
         "Stratasys Ltd.",
         "SSYS",
@@ -114,6 +122,22 @@
         ],
         1637741138.034647
     ],
+    "US00437E1029": [
+        "Accolade, Inc.",
+        "ACCD",
+        [
+            "ACCD"
+        ],
+        1637750003.366354
+    ],
+    "US00650F1093": [
+        "Adaptive Biotechnologies Corporation",
+        "ADPT",
+        [
+            "ADPT"
+        ],
+        1637749933.47473
+    ],
     "US0080731088": [
         "AeroVironment, Inc.",
         "AVAV",
@@ -121,6 +145,14 @@
             "AVAV"
         ],
         1637746679.1646552
+    ],
+    "US0197701065": [
+        "Allogene Therapeutics, Inc.",
+        "ALLO",
+        [
+            "ALLO"
+        ],
+        1637750489.802568
     ],
     "US02079K1079": [
         "Alphabet Inc.",
@@ -159,6 +191,22 @@
         ],
         false,
         1637736637.4633222
+    ],
+    "US03842K2006": [
+        "AquaBounty Technologies, Inc.",
+        "AQB",
+        [
+            "AQB"
+        ],
+        1637750603.248713
+    ],
+    "US03969T1097": [
+        "Arcturus Therapeutics Holdings Inc.",
+        "ARCT",
+        [
+            "ARCT"
+        ],
+        1637750110.840628
     ],
     "US0567521085": [
         "Baidu, Inc.",
@@ -212,6 +260,38 @@
         false,
         1637746135.7355468
     ],
+    "US12233L1070": [
+        "Burning Rock Biotech Limited",
+        "BNR",
+        [
+            "BNR"
+        ],
+        1637750641.04916
+    ],
+    "US1241551027": [
+        "Butterfly Network, Inc.",
+        "BFLY",
+        [
+            "BFLY"
+        ],
+        1637750282.184615
+    ],
+    "US14167L1035": [
+        "CareDx, Inc",
+        "CDNA",
+        [
+            "CDNA"
+        ],
+        1637749916.080744
+    ],
+    "US14843C1053": [
+        "Castle Biosciences, Inc.",
+        "CSTL",
+        [
+            "CSTL"
+        ],
+        1637750212.569675
+    ],
     "US1491231015": [
         "Caterpillar Inc.",
         "CAT",
@@ -219,6 +299,14 @@
             "CAT"
         ],
         1637746833.073076
+    ],
+    "US15117K1034": [
+        "Cellectis S.A.",
+        "CLLS",
+        [
+            "CLLS"
+        ],
+        1637750558.807116
     ],
     "US1570851014": [
         "Cerus Corporation",
@@ -235,6 +323,14 @@
             "NET"
         ],
         1637748595.828486
+    ],
+    "US1920051067": [
+        "Codexis, Inc.",
+        "CDXS",
+        [
+            "CDXS"
+        ],
+        1637749950.666213
     ],
     "US19260Q1076": [
         "COINBASE GLOBAL INC -CLASS A",
@@ -292,6 +388,14 @@
             "DKNG"
         ],
         1637742369.062539
+    ],
+    "US2680101050": [
+        "Dynamics Special Purpose Corp.",
+        "DYNS",
+        [
+            "DYNS"
+        ],
+        1637750580.939271
     ],
     "US28106W1036": [
         "Editas Medicine, Inc.",
@@ -359,6 +463,14 @@
         ],
         false,
         1637745583.660631
+    ],
+    "US45337C1027": [
+        "Incyte Corporation",
+        "INCY",
+        [
+            "INCY"
+        ],
+        1637750021.885696
     ],
     "US45826J1051": [
         "Intellia Therapeutics, Inc.",
@@ -522,6 +634,14 @@
         false,
         1637746190.4620092
     ],
+    "US65443P1021": [
+        "908 Devices Inc.",
+        "MASS",
+        [
+            "MASS"
+        ],
+        1637750339.977637
+    ],
     "US65481N1000": [
         "Niu Technologies",
         "NIU",
@@ -547,6 +667,14 @@
             "OKTA"
         ],
         1637748813.380498
+    ],
+    "US68269G1076": [
+        "1Life Healthcare, Inc.",
+        "ONEM",
+        [
+            "ONEM"
+        ],
+        1637750384.241067
     ],
     "US68620A2033": [
         "Organovo Holdings, Inc.",
@@ -593,6 +721,22 @@
         1637742291.335465,
         1637746248.598987
     ],
+    "US71535D1063": [
+        "Personalis, Inc.",
+        "PSNL",
+        [
+            "PSNL"
+        ],
+        1637750299.183018
+    ],
+    "US7170811035": [
+        "Pfizer Inc.",
+        "PFE",
+        [
+            "PFE"
+        ],
+        1637750317.4313972
+    ],
     "US7427181091": [
         "Procter & Gamble Company",
         "PG",
@@ -610,6 +754,38 @@
             "PRLB"
         ],
         1637747052.373461
+    ],
+    "US74765K1051": [
+        "Quantum-Si incorporated",
+        "QSI",
+        [
+            "QSI"
+        ],
+        1637750249.812968
+    ],
+    "US75629V1044": [
+        "Recursion Pharmaceuticals, Inc.",
+        "RXRX",
+        [
+            "RXRX"
+        ],
+        1637750430.912695
+    ],
+    "US75886F1075": [
+        "Regeneron Pharmaceuticals, Inc.",
+        "REGN",
+        [
+            "REGN"
+        ],
+        1637750131.3484411
+    ],
+    "US7602731025": [
+        "Repare Therapeutics Inc.",
+        "RPTX",
+        [
+            "RPTX"
+        ],
+        1637750183.501844
     ],
     "US7707001027": [
         "Robinhood Markets, Inc.",
@@ -646,6 +822,14 @@
         false,
         1637746203.269535
     ],
+    "US80810D1037": [
+        "Schr\u00f6dinger, Inc.",
+        "SDGR",
+        [
+            "SDGR"
+        ],
+        1637750079.329566
+    ],
     "US82671G1004": [
         "Signify Health, Inc.",
         "SGFY",
@@ -653,6 +837,14 @@
             "SGFY"
         ],
         1637742639.5204558
+    ],
+    "US82837P4081": [
+        "Silvergate Capital Corporation",
+        "SI",
+        [
+            "SI"
+        ],
+        1637780422.748937
     ],
     "US83067L1098": [
         "Skillz Inc.",
@@ -718,6 +910,14 @@
         ],
         false,
         1637745596.926599
+    ],
+    "US86877M2098": [
+        "Surface Oncology, Inc.",
+        "SURF",
+        [
+            "SURF"
+        ],
+        1637750512.2958012
     ],
     "US8716071076": [
         "Synopsys, Inc.",
@@ -863,6 +1063,14 @@
         ],
         1637739617.597462
     ],
+    "US9224751084": [
+        "Veeva Systems Inc.",
+        "VEEV",
+        [
+            "VEEV"
+        ],
+        1637750362.714182
+    ],
     "US92259N1046": [
         "Velo3D, Inc.",
         "VLD",
@@ -878,6 +1086,22 @@
             "VCYT"
         ],
         1637742570.80244
+    ],
+    "US92532F1003": [
+        "Vertex Pharmaceuticals Incorporated",
+        "VRTX",
+        [
+            "VRTX"
+        ],
+        1637749836.545464
+    ],
+    "US92539P1012": [
+        "Verve Therapeutics, Inc.",
+        "VERV",
+        [
+            "VERV"
+        ],
+        1637750407.868592
     ],
     "US92921W3007": [
         "Vuzix Corporation",
@@ -896,6 +1120,22 @@
         false,
         1637746151.4665978
     ],
+    "US98138H1014": [
+        "Workday, Inc.",
+        "WDAY",
+        [
+            "WDAY"
+        ],
+        1637780591.454599
+    ],
+    "US98954M2008": [
+        "Zillow Group, Inc.",
+        "Z",
+        [
+            "Z"
+        ],
+        1637780535.316913
+    ],
     "US98980L1017": [
         "Zoom Video Communications, Inc.",
         "ZM",
@@ -903,5 +1143,13 @@
             "ZM"
         ],
         1637740887.254474
+    ],
+    "US98985X1000": [
+        "Zymergen Inc.",
+        "ZY",
+        [
+            "ZY"
+        ],
+        1637750534.50218
     ]
 }

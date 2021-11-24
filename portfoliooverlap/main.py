@@ -109,17 +109,16 @@ def beautiful_output(matching_etfs, etf_list_yaml):
         if rounded_overlap > 0.0:
             print(etf_list_yaml[etf_isin]["name"])
             print(f"Overlap: {rounded_overlap}%")
-            print("---")
-            print(f"Top {amount_top_holdings} overlapping holdings:")
-            for i, holding in enumerate(sorted_etfs[etf_isin][0]):
-                if i < amount_top_holdings:
-                    print(f"{i+1}. {holding}")
-            print("---")
-            print(
-                "Other overlapping holdings:",
-                sorted_etfs[etf_isin][0][amount_top_holdings:],
-            )
-            print("------------")
+            # print("---")
+            print(f"Top {amount_top_holdings}: ", end="")
+            for i, holding in enumerate(sorted_etfs[etf_isin][0][:amount_top_holdings]):
+                print(f"{holding}", end=", " if i < amount_top_holdings - 1 else "\n")
+            # print("---")
+            # print(
+            #     "Other overlapping holdings:",
+            #     sorted_etfs[etf_isin][0][amount_top_holdings:],
+            # )
+            # print("------------")
             print("------------")
         else:
             no_overlap.append(etf_isin)
