@@ -55,18 +55,40 @@ the following insights
 
 ```
 ETFs sorted by weighted overlap in descending order
-----
-iShares NASDAQ 100 UCITS ETF
-Overlap: 17.1981%
-Overlapping holdings: ['AAPL', 'MSFT', 'AMZN', 'TSLA']
-----
-iShares MSCI USA ESG Screened UCITS ETF
-Overlap: 10.9532%
-Overlapping holdings: ['AAPL', 'MSFT', 'AMZN', 'TSLA']
-----
-iShares Core S&P 500 UCITS ETF
-Overlap: 10.8088%
-Overlapping holdings: ['AAPL', 'MSFT', 'AMZN', 'TSLA']
-----
+------
+ARK INNOVATION ETF
+Overlap: 13.2571%
+---
+Top 5 overlapping holdings:
+1. TESLA INC
+2. COINBASE GLOBAL INC
+3. UNITY SOFTWARE INC
+4. TELADOC HEALTH INC
+5. ROKU INC
+------------
+------------
+ARK Next Generation Internet ETF
+Overlap: 12.8671%
+---
+Top 5 overlapping holdings:
+1. TESLA INC
+2. COINBASE GLOBAL INC
+3. TWITTER INC
+4. SHOPIFY INC CLASS
+5. TELADOC HEALTH INC
+------------
+------------
+ARK Autonomous Technology & Robotics ETF
+Overlap: 12.3445%
+---
+Top 5 overlapping holdings:
+1. TESLA INC
+2. TRIMBLE INC
+3. UIPATH INC CLASS
+4. UNITY SOFTWARE INC
+5. IRIDIUM COMMUNICATIONS INC
+
+------------
+------------
 ...
 ```
