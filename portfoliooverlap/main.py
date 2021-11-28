@@ -105,10 +105,6 @@ def beautiful_output(matching_etfs, etf_list_yaml):
             5 if len(sorted_etfs[etf_isin][0]) > 5 else len(sorted_etfs[etf_isin][0])
         )
 
-        print(f"{rounded_overlap=}")
-
-        if rounded_overlap > 100:
-            rounded_overlap = 100.0
         if rounded_overlap > 0.0:
             print(etf_list_yaml[etf_isin]["name"])
             print(f"Overlap: {rounded_overlap}%")

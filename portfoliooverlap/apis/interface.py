@@ -14,11 +14,17 @@ class Interface:
         self.open_figi = OpenFigi()
 
     def _select_main_ticker(self, tickers) -> str:
+        # TODO: DNA-WS 0.87, DNA 0.86, DNA-WS 0.8
+        #       => only want DNA
         all_perfect = all([int(ticker[2]) for ticker in tickers])
         tickers_without_dot = any(["." not in ticker[0] for ticker in tickers])
+        tickers_without_dash = any(["-" not in ticker[0] for ticker in tickers])
 
         if all_perfect and tickers_without_dot:
             tickers = [ticker for ticker in tickers if "." not in ticker[0]]
+
+        if all_perfect and tickers_without_dash:
+            tickers = [ticker for ticker in tickers if "-" not in ticker[0]]
 
         return tickers[0][0]
 
