@@ -94,22 +94,23 @@ class Interface:
                         match["3. type"],
                     ]
 
-        collected_tickers = list(
-            filter(
-                lambda ticker: "." not in ticker[0],
-                collected_tickers.items(),
-            )
-        )
-        collected_tickers = sorted(
-            collected_tickers, key=lambda ticker: ticker[1][0], reverse=True
-        )
+        # collected_tickers = list(
+        #     filter(
+        #         lambda ticker: "." not in ticker[0],
+        #         collected_tickers.items(),
+        #     )
+        # )
 
-        main_ticker = collected_tickers[0][0]
+        # collected_tickers = dict(
+        #     sorted(collected_tickers.items(), key=lambda item: item[1], reverse=True)
+        # )
+
+        main_ticker = sorted(
+            collected_tickers.items(), key=lambda item: item[1], reverse=True
+        )[0][0]
 
         av_data["main_ticker"] = main_ticker
-        av_data["tickers"] = list(
-            set([ticker_tuple[0] for ticker_tuple in collected_tickers])
-        )
+        av_data["tickers"] = list(set([ticker for ticker in collected_tickers]))
 
         if "quote" in requested_data:
             av_data["quote"] = float(
@@ -117,7 +118,9 @@ class Interface:
             )
 
         if "equity_type" in requested_data:
-            equity_type = "STOCK" if collected_tickers[0][1][1] == "Equity" else "ETF"
+            equity_type = (
+                "STOCK" if collected_tickers[main_ticker][1] == "Equity" else "ETF"
+            )
             av_data["equity_type"] = equity_type
 
         return av_data

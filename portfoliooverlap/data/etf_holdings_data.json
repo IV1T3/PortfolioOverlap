@@ -1,1 +1,832 @@
-{"US00214Q1040": {"holdings": [["US88160R1014", "TESLA INC", 10.38], ["US19260Q1076", "COINBASE GLOBAL INC", 6.11], ["US91332U1016", "UNITY SOFTWARE INC", 5.88], ["US87918A1051", "TELADOC HEALTH INC", 5.8], ["US77543R1023", "ROKU INC", 5.4], ["US98980L1017", "ZOOM VIDEO", 4.94], ["CA82509L1076", "SHOPIFY INC CLASS", 4.32], ["LU1778762911", "SPOTIFY TECHNOLOGY SA", 3.99], ["US8522341036", "SQUARE INC", 3.59], ["US30063P1057", "EXACT SCIENCES CORP", 3.55], ["US90138F1021", "TWILIO INC", 3.54], ["US90364P1057", "UIPATH INC CLASS", 3.38], ["US45826J1051", "INTELLIA THERAPEUTICS INC", 3.05], ["US69608A1088", "PALANTIR TECHNOLOGIES", 2.81], ["US07373V1052", "BEAM THERAPEUTICS INC", 2.62], ["CH0334081137", "CRISPR THERAPEUTICS AG", 2.6], ["US90184L1026", "TWITTER INC", 2.54], ["US26142R1041", "DRAFTKINGS INC CL", 2.34], ["US31189P1021", "FATE THERAPEUTICS INC", 1.7], ["US88025U1097", "10X GENOMICS", 1.66], ["US46185L1035", "INVITAE CORP", 1.6], ["US2561631068", "DOCUSIGN INC", 1.53], ["US7707001027", "ROBINHOOD MARKETS INC", 1.49], ["US46269C1027", "IRIDIUM COMMUNICATIONS INC", 1.42], ["US90089L1089", "TUSIMPLE HOLDINGS INC", 1.36], ["US69553P1003", "PAGERDUTY INC", 1.32], ["US69404D1081", "PACIFIC BIOSCIENCES OF CALIF", 1.31], ["US37611X1000", "GINKGO BIOWORKS HOLDINGS INC", 1.28], ["US92337F1075", "VERACYTE INC", 0.94], ["US90184D1000", "TWIST BIOSCIENCE CORP", 0.9], ["US83067L1098", "SKILLZ INC", 0.86], ["US82671G1004", "SIGNIFY HEALTH INC", 0.78], ["US28106W1036", "EDITAS MEDICINE INC", 0.72], ["US90214J1016", "2U INC", 0.67], ["US8962391004", "TRIMBLE INC", 0.62], ["US0843101017", "BERKELEY LIGHTS INC", 0.54], ["IL0011267213", "STRATASYS LTD", 0.54], ["US4622601007", "IOVANCE BIOTHERAPEUTICS INC", 0.53], ["US57667T1007", "MATERIALISE", 0.43], ["US1570851014", "CERUS CORP", 0.39], ["US88554D2053", "3D SYSTEMS CORP", 0.25], ["IL0010852080", "COMPUGEN LTD", 0.13]], "updated": 1637708400.0}, "US00214Q2030": {"holdings": [["US88160R1014", "TESLA INC", 11.59], ["US8962391004", "TRIMBLE INC", 6.93], ["US50077B2079", "KRATOS DEFENSE SECURITY", 6.64], ["US90364P1057", "UIPATH INC CLASS", 6.43], ["US91332U1016", "UNITY SOFTWARE INC", 6.02], ["US46269C1027", "IRIDIUM COMMUNICATIONS INC", 4.33], ["US47215P1066", "JD.COM", 4.25], ["US5004584018", "KOMATSU LTD ADR", 3.73], ["US88554D2053", "3D SYSTEMS CORP", 3.39], ["US2441991054", "DEERE CO", 3.07], ["US90089L1089", "TUSIMPLE HOLDINGS INC", 2.75], ["US8807701029", "TERADYNE INC", 2.7], ["US57064N1028", "MARKFORGED HOLDING CORP", 2.65], ["US65481N1000", "NIU ADR", 2.56], ["US0080731088", "AEROVIRONMENT INC", 2.3], ["US92259N1046", "VELO3D INC", 2.26], ["CA5592224011", "MAGNA INTERNATIONAL INC", 2.23], ["US02079K1079", "ALPHABET", 2.08], ["US0926671043", "BLADE AIR MOBILITY INC", 1.92], ["US5398301094", "LOCKHEED MARTIN CORP", 1.88], ["US63008G2030", "NANO DIMENSION LTD ADR", 1.75], ["US1491231015", "CATERPILLAR INC", 1.69], ["IL0010811243", "ELBIT SYSTEMS LTD", 1.35], ["US0567521085", "BAIDU INC SPON ADR", 1.33], ["US69608A1088", "PALANTIR TECHNOLOGIES", 1.32], ["US57667T1007", "MATERIALISE", 1.23], ["US8793601050", "TELEDYNE TECHNOLOGIES INC", 1.19], ["US8716071076", "SYNOPSYS INC", 1.15], ["US03662Q1058", "ANSYS INC", 1.09], ["US92921W3007", "VUZIX CORP", 1.08], ["IL0011267213", "STRATASYS LTD", 1.08], ["US7437131094", "PROTO LABS INC", 1.07], ["US46120E6023", "INTUITIVE SURGICAL INC", 0.95], ["US90214J1016", "2U INC", 0.78], ["US68620A2033", "ORGANOVO HOLDINGS INC", 0.02]], "updated": 1637708400.0}, "US00214Q3020": {"holdings": [["US87918A1051", "TELADOC HEALTH INC", 7.65], ["US30063P1057", "EXACT SCIENCES CORP", 6.58], ["US69404D1081", "PACIFIC BIOSCIENCES OF CALIF", 5.54], ["US4622221004", "IONIS PHARMACEUTICALS INC", 4.19], ["US31189P1021", "FATE THERAPEUTICS INC", 4.06], ["US92532F1003", "VERTEX PHARMACEUTICALS INC", 3.7], ["US90184D1000", "TWIST BIOSCIENCE CORP", 3.56], ["US45826J1051", "INTELLIA THERAPEUTICS INC", 3.42], ["US07373V1052", "BEAM THERAPEUTICS INC", 3.18], ["US37611X1000", "GINKGO BIOWORKS HOLDINGS INC", 3.1], ["CH0334081137", "CRISPR THERAPEUTICS AG", 2.95], ["US14167L1035", "CAREDX INC", 2.87], ["US00650F1093", "ADAPTIVE BIOTECHNOLOGIES", 2.86], ["US1920051067", "CODEXIS INC", 2.57], ["US00437E1029", "ACCOLADE INC", 2.54], ["US45337C1027", "INCYTE CORP", 2.4], ["US90364P1057", "UIPATH INC CLASS", 2.28], ["US82671G1004", "SIGNIFY HEALTH INC", 2.04], ["US46185L1035", "INVITAE CORP", 1.86], ["US80810D1037", "SCHRODINGER INC", 1.81], ["US03969T1097", "ARCTURUS THERAPEUTICS HOLDIN", 1.64], ["US75886F1075", "REGENERON PHARMACEUTICALS", 1.52], ["US92337F1075", "VERACYTE INC", 1.49], ["US7602731025", "REPARE THERAPEUTICS INC", 1.42], ["US88025U1097", "10X GENOMICS", 1.38], ["US14843C1053", "CASTLE BIOSCIENCES INC", 1.37], ["US0843101017", "BERKELEY LIGHTS INC", 1.37], ["US74765K1051", "INC", 1.3], ["US4622601007", "IOVANCE BIOTHERAPEUTICS INC", 1.26], ["US1241551027", "BUTTERFLY NETWORK INC", 1.19], ["US71535D1063", "PERSONALIS INC", 1.19], ["US7170811035", "PFIZER INC", 1.18], ["US65443P1021", "908 DEVICES INC", 1.15], ["US9224751084", "VEEVA SYSTEMS", 1.15], ["US68269G1076", "1LIFE HEALTHCARE INC", 1.14], ["US92539P1012", "VERVE THERAPEUTICS INC", 0.93], ["US75629V1044", "RECURSION", 0.68], ["US69608A1088", "PALANTIR TECHNOLOGIES", 0.64], ["US28106W1036", "EDITAS MEDICINE INC", 0.64], ["US1570851014", "CERUS CORP", 0.61], ["US0197701065", "ALLOGENE THERAPEUTICS INC", 0.55], ["US86877M2098", "SURFACE ONCOLOGY INC", 0.52], ["US98985X1000", "ZYMERGEN INC", 0.5], ["US15117K1034", "CELLECTIS ADR", 0.46], ["US2680101050", "DYNAMICS SPECIAL PURPOSE", 0.43], ["US03842K2006", "AQUABOUNTY TECHNOLOGIES", 0.27], ["IL0010852080", "COMPUGEN LTD", 0.27], ["US12233L1070", "BURNING ROCK BIOTECH", 0.23], ["IL0011050551", "EVOGENE LTD", 0.1], ["US68620A2033", "ORGANOVO HOLDINGS INC", 0.02]], "updated": 1637708400.0}, "US00214Q4010": {"holdings": [["US88160R1014", "TESLA INC", 10.22], ["US19260Q1076", "COINBASE GLOBAL INC", 6.82], ["US90184L1026", "TWITTER INC", 4.83], ["CA82509L1076", "SHOPIFY INC CLASS", 4.75], ["US87918A1051", "TELADOC HEALTH INC", 4.7], ["US77543R1023", "ROKU INC", 4.61], ["US98980L1017", "ZOOM VIDEO", 4.37], ["LU1778762911", "SPOTIFY TECHNOLOGY SA", 4.03], ["US8522341036", "SQUARE INC", 3.65], ["US90138F1021", "TWILIO INC", 3.6], ["US91332U1016", "UNITY SOFTWARE INC", 3.41], ["US26142R1041", "DRAFTKINGS INC CL", 3.22], ["US7710491033", "ROBLOX CORP", 2.95], ["US90364P1057", "UIPATH INC CLASS", 2.36], ["US7707001027", "ROBINHOOD MARKETS INC", 2.18], ["US8486371045", "SPLUNK INC", 2.1], ["US69608A1088", "PALANTIR TECHNOLOGIES", 2.01], ["US29786A1060", "ETSY INC", 1.54], ["US83067L1098", "SKILLZ INC", 1.46], ["US2546871060", "WALT DISNEY CO/THE", 1.45], ["US18915M1071", "CLOUDFLARE INC CLASS", 1.42], ["US5381461012", "LIVEPERSON INC", 1.32], ["US92921W3007", "VUZIX CORP", 1.32], ["US69553P1003", "PAGERDUTY INC", 1.27], ["US30303M1027", "META PLATFORMS", 1.13], ["GG00BMF1JR16", "GENIUS SPORTS LTD", 1.08], ["US58733R1023", "MERCADOLIBRE INC", 1.03], ["US83304A1060", "SNAP INC", 1.03], ["US2561631068", "DOCUSIGN INC", 1.01], ["US92337F1075", "VERACYTE INC", 0.97], ["US6792951054", "OKTA INC", 0.96], ["US63008G2030", "NANO DIMENSION LTD ADR", 0.76], ["US2060711023", "CONCORD ACQUISITION CORP", 0.7], ["US90214J1016", "2U INC", 0.65], ["IL0011762130", "MONDAY.COM LTD", 0.54]], "updated": 1637708400.0}}
+{
+    "US00214Q1040": {
+        "holdings": [
+            [
+                "US88160R1014",
+                "TESLA INC",
+                10.38
+            ],
+            [
+                "US19260Q1076",
+                "COINBASE GLOBAL INC",
+                6.11
+            ],
+            [
+                "US91332U1016",
+                "UNITY SOFTWARE INC",
+                5.88
+            ],
+            [
+                "US87918A1051",
+                "TELADOC HEALTH INC",
+                5.8
+            ],
+            [
+                "US77543R1023",
+                "ROKU INC",
+                5.4
+            ],
+            [
+                "US98980L1017",
+                "ZOOM VIDEO",
+                4.94
+            ],
+            [
+                "CA82509L1076",
+                "SHOPIFY INC CLASS",
+                4.32
+            ],
+            [
+                "LU1778762911",
+                "SPOTIFY TECHNOLOGY SA",
+                3.99
+            ],
+            [
+                "US8522341036",
+                "SQUARE INC",
+                3.59
+            ],
+            [
+                "US30063P1057",
+                "EXACT SCIENCES CORP",
+                3.55
+            ],
+            [
+                "US90138F1021",
+                "TWILIO INC",
+                3.54
+            ],
+            [
+                "US90364P1057",
+                "UIPATH INC CLASS",
+                3.38
+            ],
+            [
+                "US45826J1051",
+                "INTELLIA THERAPEUTICS INC",
+                3.05
+            ],
+            [
+                "US69608A1088",
+                "PALANTIR TECHNOLOGIES",
+                2.81
+            ],
+            [
+                "US07373V1052",
+                "BEAM THERAPEUTICS INC",
+                2.62
+            ],
+            [
+                "CH0334081137",
+                "CRISPR THERAPEUTICS AG",
+                2.6
+            ],
+            [
+                "US90184L1026",
+                "TWITTER INC",
+                2.54
+            ],
+            [
+                "US26142R1041",
+                "DRAFTKINGS INC CL",
+                2.34
+            ],
+            [
+                "US31189P1021",
+                "FATE THERAPEUTICS INC",
+                1.7
+            ],
+            [
+                "US88025U1097",
+                "10X GENOMICS",
+                1.66
+            ],
+            [
+                "US46185L1035",
+                "INVITAE CORP",
+                1.6
+            ],
+            [
+                "US2561631068",
+                "DOCUSIGN INC",
+                1.53
+            ],
+            [
+                "US7707001027",
+                "ROBINHOOD MARKETS INC",
+                1.49
+            ],
+            [
+                "US46269C1027",
+                "IRIDIUM COMMUNICATIONS INC",
+                1.42
+            ],
+            [
+                "US90089L1089",
+                "TUSIMPLE HOLDINGS INC",
+                1.36
+            ],
+            [
+                "US69553P1003",
+                "PAGERDUTY INC",
+                1.32
+            ],
+            [
+                "US69404D1081",
+                "PACIFIC BIOSCIENCES OF CALIF",
+                1.31
+            ],
+            [
+                "US37611X1000",
+                "GINKGO BIOWORKS HOLDINGS INC",
+                1.28
+            ],
+            [
+                "US92337F1075",
+                "VERACYTE INC",
+                0.94
+            ],
+            [
+                "US90184D1000",
+                "TWIST BIOSCIENCE CORP",
+                0.9
+            ],
+            [
+                "US83067L1098",
+                "SKILLZ INC",
+                0.86
+            ],
+            [
+                "US82671G1004",
+                "SIGNIFY HEALTH INC",
+                0.78
+            ],
+            [
+                "US28106W1036",
+                "EDITAS MEDICINE INC",
+                0.72
+            ],
+            [
+                "US90214J1016",
+                "2U INC",
+                0.67
+            ],
+            [
+                "US8962391004",
+                "TRIMBLE INC",
+                0.62
+            ],
+            [
+                "US0843101017",
+                "BERKELEY LIGHTS INC",
+                0.54
+            ],
+            [
+                "IL0011267213",
+                "STRATASYS LTD",
+                0.54
+            ],
+            [
+                "US4622601007",
+                "IOVANCE BIOTHERAPEUTICS INC",
+                0.53
+            ],
+            [
+                "US57667T1007",
+                "MATERIALISE",
+                0.43
+            ],
+            [
+                "US1570851014",
+                "CERUS CORP",
+                0.39
+            ],
+            [
+                "US88554D2053",
+                "3D SYSTEMS CORP",
+                0.25
+            ],
+            [
+                "IL0010852080",
+                "COMPUGEN LTD",
+                0.13
+            ]
+        ],
+        "updated": 1637708400.0
+    },
+    "US00214Q2030": {
+        "holdings": [
+            [
+                "US88160R1014",
+                "TESLA INC",
+                11.59
+            ],
+            [
+                "US8962391004",
+                "TRIMBLE INC",
+                6.93
+            ],
+            [
+                "US50077B2079",
+                "KRATOS DEFENSE SECURITY",
+                6.64
+            ],
+            [
+                "US90364P1057",
+                "UIPATH INC CLASS",
+                6.43
+            ],
+            [
+                "US91332U1016",
+                "UNITY SOFTWARE INC",
+                6.02
+            ],
+            [
+                "US46269C1027",
+                "IRIDIUM COMMUNICATIONS INC",
+                4.33
+            ],
+            [
+                "US47215P1066",
+                "JD.COM",
+                4.25
+            ],
+            [
+                "US5004584018",
+                "KOMATSU LTD ADR",
+                3.73
+            ],
+            [
+                "US88554D2053",
+                "3D SYSTEMS CORP",
+                3.39
+            ],
+            [
+                "US2441991054",
+                "DEERE CO",
+                3.07
+            ],
+            [
+                "US90089L1089",
+                "TUSIMPLE HOLDINGS INC",
+                2.75
+            ],
+            [
+                "US8807701029",
+                "TERADYNE INC",
+                2.7
+            ],
+            [
+                "US57064N1028",
+                "MARKFORGED HOLDING CORP",
+                2.65
+            ],
+            [
+                "US65481N1000",
+                "NIU ADR",
+                2.56
+            ],
+            [
+                "US0080731088",
+                "AEROVIRONMENT INC",
+                2.3
+            ],
+            [
+                "US92259N1046",
+                "VELO3D INC",
+                2.26
+            ],
+            [
+                "CA5592224011",
+                "MAGNA INTERNATIONAL INC",
+                2.23
+            ],
+            [
+                "US02079K1079",
+                "ALPHABET",
+                2.08
+            ],
+            [
+                "US0926671043",
+                "BLADE AIR MOBILITY INC",
+                1.92
+            ],
+            [
+                "US5398301094",
+                "LOCKHEED MARTIN CORP",
+                1.88
+            ],
+            [
+                "US63008G2030",
+                "NANO DIMENSION LTD ADR",
+                1.75
+            ],
+            [
+                "US1491231015",
+                "CATERPILLAR INC",
+                1.69
+            ],
+            [
+                "IL0010811243",
+                "ELBIT SYSTEMS LTD",
+                1.35
+            ],
+            [
+                "US0567521085",
+                "BAIDU INC SPON ADR",
+                1.33
+            ],
+            [
+                "US69608A1088",
+                "PALANTIR TECHNOLOGIES",
+                1.32
+            ],
+            [
+                "US57667T1007",
+                "MATERIALISE",
+                1.23
+            ],
+            [
+                "US8793601050",
+                "TELEDYNE TECHNOLOGIES INC",
+                1.19
+            ],
+            [
+                "US8716071076",
+                "SYNOPSYS INC",
+                1.15
+            ],
+            [
+                "US03662Q1058",
+                "ANSYS INC",
+                1.09
+            ],
+            [
+                "US92921W3007",
+                "VUZIX CORP",
+                1.08
+            ],
+            [
+                "IL0011267213",
+                "STRATASYS LTD",
+                1.08
+            ],
+            [
+                "US7437131094",
+                "PROTO LABS INC",
+                1.07
+            ],
+            [
+                "US46120E6023",
+                "INTUITIVE SURGICAL INC",
+                0.95
+            ],
+            [
+                "US90214J1016",
+                "2U INC",
+                0.78
+            ],
+            [
+                "US68620A2033",
+                "ORGANOVO HOLDINGS INC",
+                0.02
+            ]
+        ],
+        "updated": 1637708400.0
+    },
+    "US00214Q3020": {
+        "holdings": [
+            [
+                "US87918A1051",
+                "TELADOC HEALTH INC",
+                7.65
+            ],
+            [
+                "US30063P1057",
+                "EXACT SCIENCES CORP",
+                6.58
+            ],
+            [
+                "US69404D1081",
+                "PACIFIC BIOSCIENCES OF CALIF",
+                5.54
+            ],
+            [
+                "US4622221004",
+                "IONIS PHARMACEUTICALS INC",
+                4.19
+            ],
+            [
+                "US31189P1021",
+                "FATE THERAPEUTICS INC",
+                4.06
+            ],
+            [
+                "US92532F1003",
+                "VERTEX PHARMACEUTICALS INC",
+                3.7
+            ],
+            [
+                "US90184D1000",
+                "TWIST BIOSCIENCE CORP",
+                3.56
+            ],
+            [
+                "US45826J1051",
+                "INTELLIA THERAPEUTICS INC",
+                3.42
+            ],
+            [
+                "US07373V1052",
+                "BEAM THERAPEUTICS INC",
+                3.18
+            ],
+            [
+                "US37611X1000",
+                "GINKGO BIOWORKS HOLDINGS INC",
+                3.1
+            ],
+            [
+                "CH0334081137",
+                "CRISPR THERAPEUTICS AG",
+                2.95
+            ],
+            [
+                "US14167L1035",
+                "CAREDX INC",
+                2.87
+            ],
+            [
+                "US00650F1093",
+                "ADAPTIVE BIOTECHNOLOGIES",
+                2.86
+            ],
+            [
+                "US1920051067",
+                "CODEXIS INC",
+                2.57
+            ],
+            [
+                "US00437E1029",
+                "ACCOLADE INC",
+                2.54
+            ],
+            [
+                "US45337C1027",
+                "INCYTE CORP",
+                2.4
+            ],
+            [
+                "US90364P1057",
+                "UIPATH INC CLASS",
+                2.28
+            ],
+            [
+                "US82671G1004",
+                "SIGNIFY HEALTH INC",
+                2.04
+            ],
+            [
+                "US46185L1035",
+                "INVITAE CORP",
+                1.86
+            ],
+            [
+                "US80810D1037",
+                "SCHRODINGER INC",
+                1.81
+            ],
+            [
+                "US03969T1097",
+                "ARCTURUS THERAPEUTICS HOLDIN",
+                1.64
+            ],
+            [
+                "US75886F1075",
+                "REGENERON PHARMACEUTICALS",
+                1.52
+            ],
+            [
+                "US92337F1075",
+                "VERACYTE INC",
+                1.49
+            ],
+            [
+                "US7602731025",
+                "REPARE THERAPEUTICS INC",
+                1.42
+            ],
+            [
+                "US88025U1097",
+                "10X GENOMICS",
+                1.38
+            ],
+            [
+                "US14843C1053",
+                "CASTLE BIOSCIENCES INC",
+                1.37
+            ],
+            [
+                "US0843101017",
+                "BERKELEY LIGHTS INC",
+                1.37
+            ],
+            [
+                "US74765K1051",
+                "INC",
+                1.3
+            ],
+            [
+                "US4622601007",
+                "IOVANCE BIOTHERAPEUTICS INC",
+                1.26
+            ],
+            [
+                "US1241551027",
+                "BUTTERFLY NETWORK INC",
+                1.19
+            ],
+            [
+                "US71535D1063",
+                "PERSONALIS INC",
+                1.19
+            ],
+            [
+                "US7170811035",
+                "PFIZER INC",
+                1.18
+            ],
+            [
+                "US65443P1021",
+                "908 DEVICES INC",
+                1.15
+            ],
+            [
+                "US9224751084",
+                "VEEVA SYSTEMS",
+                1.15
+            ],
+            [
+                "US68269G1076",
+                "1LIFE HEALTHCARE INC",
+                1.14
+            ],
+            [
+                "US92539P1012",
+                "VERVE THERAPEUTICS INC",
+                0.93
+            ],
+            [
+                "US75629V1044",
+                "RECURSION",
+                0.68
+            ],
+            [
+                "US69608A1088",
+                "PALANTIR TECHNOLOGIES",
+                0.64
+            ],
+            [
+                "US28106W1036",
+                "EDITAS MEDICINE INC",
+                0.64
+            ],
+            [
+                "US1570851014",
+                "CERUS CORP",
+                0.61
+            ],
+            [
+                "US0197701065",
+                "ALLOGENE THERAPEUTICS INC",
+                0.55
+            ],
+            [
+                "US86877M2098",
+                "SURFACE ONCOLOGY INC",
+                0.52
+            ],
+            [
+                "US98985X1000",
+                "ZYMERGEN INC",
+                0.5
+            ],
+            [
+                "US15117K1034",
+                "CELLECTIS ADR",
+                0.46
+            ],
+            [
+                "US2680101050",
+                "DYNAMICS SPECIAL PURPOSE",
+                0.43
+            ],
+            [
+                "US03842K2006",
+                "AQUABOUNTY TECHNOLOGIES",
+                0.27
+            ],
+            [
+                "IL0010852080",
+                "COMPUGEN LTD",
+                0.27
+            ],
+            [
+                "US12233L1070",
+                "BURNING ROCK BIOTECH",
+                0.23
+            ],
+            [
+                "IL0011050551",
+                "EVOGENE LTD",
+                0.1
+            ],
+            [
+                "US68620A2033",
+                "ORGANOVO HOLDINGS INC",
+                0.02
+            ]
+        ],
+        "updated": 1637708400.0
+    },
+    "US00214Q4010": {
+        "holdings": [
+            [
+                "US88160R1014",
+                "TESLA INC",
+                10.22
+            ],
+            [
+                "US19260Q1076",
+                "COINBASE GLOBAL INC",
+                6.82
+            ],
+            [
+                "US90184L1026",
+                "TWITTER INC",
+                4.83
+            ],
+            [
+                "CA82509L1076",
+                "SHOPIFY INC CLASS",
+                4.75
+            ],
+            [
+                "US87918A1051",
+                "TELADOC HEALTH INC",
+                4.7
+            ],
+            [
+                "US77543R1023",
+                "ROKU INC",
+                4.61
+            ],
+            [
+                "US98980L1017",
+                "ZOOM VIDEO",
+                4.37
+            ],
+            [
+                "LU1778762911",
+                "SPOTIFY TECHNOLOGY SA",
+                4.03
+            ],
+            [
+                "US8522341036",
+                "SQUARE INC",
+                3.65
+            ],
+            [
+                "US90138F1021",
+                "TWILIO INC",
+                3.6
+            ],
+            [
+                "US91332U1016",
+                "UNITY SOFTWARE INC",
+                3.41
+            ],
+            [
+                "US26142R1041",
+                "DRAFTKINGS INC CL",
+                3.22
+            ],
+            [
+                "US7710491033",
+                "ROBLOX CORP",
+                2.95
+            ],
+            [
+                "US90364P1057",
+                "UIPATH INC CLASS",
+                2.36
+            ],
+            [
+                "US7707001027",
+                "ROBINHOOD MARKETS INC",
+                2.18
+            ],
+            [
+                "US8486371045",
+                "SPLUNK INC",
+                2.1
+            ],
+            [
+                "US69608A1088",
+                "PALANTIR TECHNOLOGIES",
+                2.01
+            ],
+            [
+                "US29786A1060",
+                "ETSY INC",
+                1.54
+            ],
+            [
+                "US83067L1098",
+                "SKILLZ INC",
+                1.46
+            ],
+            [
+                "US2546871060",
+                "WALT DISNEY CO/THE",
+                1.45
+            ],
+            [
+                "US18915M1071",
+                "CLOUDFLARE INC CLASS",
+                1.42
+            ],
+            [
+                "US5381461012",
+                "LIVEPERSON INC",
+                1.32
+            ],
+            [
+                "US92921W3007",
+                "VUZIX CORP",
+                1.32
+            ],
+            [
+                "US69553P1003",
+                "PAGERDUTY INC",
+                1.27
+            ],
+            [
+                "US30303M1027",
+                "META PLATFORMS",
+                1.13
+            ],
+            [
+                "GG00BMF1JR16",
+                "GENIUS SPORTS LTD",
+                1.08
+            ],
+            [
+                "US58733R1023",
+                "MERCADOLIBRE INC",
+                1.03
+            ],
+            [
+                "US83304A1060",
+                "SNAP INC",
+                1.03
+            ],
+            [
+                "US2561631068",
+                "DOCUSIGN INC",
+                1.01
+            ],
+            [
+                "US92337F1075",
+                "VERACYTE INC",
+                0.97
+            ],
+            [
+                "US6792951054",
+                "OKTA INC",
+                0.96
+            ],
+            [
+                "US63008G2030",
+                "NANO DIMENSION LTD ADR",
+                0.76
+            ],
+            [
+                "US2060711023",
+                "CONCORD ACQUISITION CORP",
+                0.7
+            ],
+            [
+                "US90214J1016",
+                "2U INC",
+                0.65
+            ],
+            [
+                "IL0011762130",
+                "MONDAY.COM LTD",
+                0.54
+            ]
+        ],
+        "updated": 1637708400.0
+    }
+}
