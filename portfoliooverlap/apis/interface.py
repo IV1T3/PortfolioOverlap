@@ -13,6 +13,15 @@ class Interface:
         self.alpha_vantage = AlphaVantage()
         self.open_figi = OpenFigi()
 
+    def _select_main_ticker(self, tickers) -> str:
+        all_perfect = all([int(ticker[2]) for ticker in tickers])
+        tickers_without_dot = any(["." not in ticker[0] for ticker in tickers])
+
+        if all_perfect and tickers_without_dot:
+            tickers = [ticker for ticker in tickers if "." not in ticker[0]]
+
+        return tickers[0][0]
+
     def get_data_by_isin(self, isin, requested_data=None) -> list:
         print("Getting data by ISIN")
 
@@ -67,14 +76,18 @@ class Interface:
         print("Getting AV data by name:", name)
         av_data = {}
 
-        collected_tickers = {}
+        collected_tickers = []
 
         name = " ".join(list(filter(lambda word: len(word) > 1, name.split(" "))))
         name = " ".join(list(filter(lambda word: "-" not in word, name.split(" "))))
-        name = " ".join(list(filter(lambda word: "SA" not in word, name.split(" "))))
+        name = " ".join(list(filter(lambda word: "SA" != word, name.split(" "))))
+        name = " ".join(list(filter(lambda word: "CLASS" != word, name.split(" "))))
+        name = " ".join(list(filter(lambda word: "CL" != word, name.split(" "))))
 
         longest_words = sorted(name.split(" "), key=len, reverse=True)
         best_matches = self.alpha_vantage.get_company_by_keyword(name)["bestMatches"]
+
+        print(f"{best_matches=}")
 
         for match in best_matches:
             if float(match["9. matchScore"]) > 0.4:
@@ -89,28 +102,24 @@ class Interface:
                     #     ]
 
                     # else:
-                    collected_tickers[match["1. symbol"]] = [
-                        float(match["9. matchScore"]),
+                    ticker_data = [
+                        match["1. symbol"],
                         match["3. type"],
+                        float(match["9. matchScore"]),
                     ]
+                    collected_tickers.append(ticker_data)
+                    # collected_tickers[match["1. symbol"]] = [
+                    #     float(match["9. matchScore"]),
+                    #     match["3. type"],
+                    # ]
 
-        # collected_tickers = list(
-        #     filter(
-        #         lambda ticker: "." not in ticker[0],
-        #         collected_tickers.items(),
-        #     )
-        # )
+        print(f"{collected_tickers=}")
 
-        # collected_tickers = dict(
-        #     sorted(collected_tickers.items(), key=lambda item: item[1], reverse=True)
-        # )
-
-        main_ticker = sorted(
-            collected_tickers.items(), key=lambda item: item[1], reverse=True
-        )[0][0]
-
+        main_ticker = self._select_main_ticker(collected_tickers)
         av_data["main_ticker"] = main_ticker
-        av_data["tickers"] = list(set([ticker for ticker in collected_tickers]))
+        av_data["tickers"] = list(
+            set([ticker_data[0] for ticker_data in collected_tickers])
+        )
 
         if "quote" in requested_data:
             av_data["quote"] = float(
@@ -118,9 +127,10 @@ class Interface:
             )
 
         if "equity_type" in requested_data:
-            equity_type = (
-                "STOCK" if collected_tickers[main_ticker][1] == "Equity" else "ETF"
-            )
-            av_data["equity_type"] = equity_type
+            for ticker_data in collected_tickers:
+                if ticker_data[0] == main_ticker:
+                    av_data["equity_type"] = (
+                        "STOCK" if ticker_data[1] == "Equity" else "ETF"
+                    )
 
         return av_data
