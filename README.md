@@ -9,7 +9,7 @@ Currently, 4 ETFs of ARK Invest are supported:
 | ARK INNOVATION ETF                       | ARKK   |
 | ARK Autonomous Technology & Robotics ETF | ARKQ   |
 | ARK Next Generation Internet ETF         | ARKW   |
-| ARK Genomic Revolution ETF               | ARKW   |
+| ARK Genomic Revolution ETF               | ARKG   |
 
 [//]: # (| ...                                      | ...    |)
 [//]: # (| iShares Core MSCI World UCITS ETF        | EUNL   |)
@@ -42,7 +42,7 @@ US00214Q1040: 5.0 # ARKK (ETF)
 
 The tool also uses the AlphaVantage API to fetch the current price of the stocks in your portfolio. To use the API, you need to get a free API key at [AlphaVantage](https://www.alphavantage.co/support/#api-key). In the root directory of the project, create a file named `.env` and add your API key as follows:
 ```console
-ALPHAVANTAGE_KEY = "API_KEY"
+ALPHA_VANTAGE_API_KEY = "API_KEY"
 ```
 
 Then, run the tool

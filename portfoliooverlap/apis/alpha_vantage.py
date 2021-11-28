@@ -20,6 +20,7 @@ class AlphaVantage:
         self.api_key = api_key
 
     def _perform_api_request(self, url):
+        print(f"{url=}")
         response = requests.get(url)
         data = response.json()
         sleep(12)
@@ -43,7 +44,6 @@ class AlphaVantage:
             + "&apikey="
             + self.api_key
         )
-        print(f"{url=}")
         data = self._perform_api_request(url)
         quote = data["Global Quote"]["05. price"]
         return quote

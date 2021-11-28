@@ -11,8 +11,6 @@ import pprint
 
 from tqdm import tqdm
 
-from apis.alpha_vantage import AlphaVantage
-
 from primitives.holding import Holding
 from primitives.etf import ETF
 from primitives.isin import ISIN
@@ -36,7 +34,6 @@ def get_shares_in_common(portfolio_a, portfolio_b):
 def calculate_overlapping_percentage(etf_data, holdings):
     shares_in_common = {}
     total_overlap_percentage = 0.0
-    # individual_overlaps = []
     etf_holdings = etf_data["holdings"]
     etf_weight_sum = sum([position[2] for position in etf_holdings]) / 100
     portfolio_weight_sum = sum(
@@ -54,16 +51,9 @@ def calculate_overlapping_percentage(etf_data, holdings):
 
                 shares_in_common[etf_position_name] = ind_overlap
 
-                # individual_overlaps.append(ind_overlap)
-                # shares_in_common.append(etf_position_name)
     total_overlap_percentage = (
         2 * (sum(shares_in_common.values())) / (etf_weight_sum + portfolio_weight_sum)
     )
-
-    # print(f"{shares_in_common=}")
-    # print(f"{total_overlap_percentage=}")
-
-    # print(f"{len(shares_in_common)=}")
 
     return shares_in_common, total_overlap_percentage
 
@@ -114,7 +104,9 @@ def beautiful_output(matching_etfs, etf_list_yaml):
         amount_top_holdings = (
             5 if len(sorted_etfs[etf_isin][0]) > 5 else len(sorted_etfs[etf_isin][0])
         )
-        # TODO: ARK Innovation for example a bit above 100% overlap??
+
+        print(f"{rounded_overlap=}")
+
         if rounded_overlap > 100:
             rounded_overlap = 100.0
         if rounded_overlap > 0.0:
@@ -211,7 +203,7 @@ def resolve_etfs_into_individual_holdings(holdings):
                         # print(f"{single_etf_position_name} quantity: ??")
                         # print(f"{single_etf_position_name} price: ??")
 
-                        isin_obj = ISIN(single_etf_position_isin)
+                        isin_obj = ISIN(single_etf_position_isin, options)
                         resolved_holdings[single_etf_position_isin] = Holding(
                             name=single_etf_position_name,
                             isin=single_etf_position_isin,
@@ -272,14 +264,14 @@ if __name__ == "__main__":
 
     # Fetching tickers
     for i, isin in enumerate(portfolio_isin_pbar):
-        isin_obj = ISIN(isin)
+        isin_obj = ISIN(isin, options)
         if not isin_obj.exists():
             isin_obj.create()
 
     # Preparing portfolio holdings
     holdings_pbar = tqdm(portfolio_data_yaml, desc="Preparing holdings")
     for i, isin in enumerate(holdings_pbar):
-        isin_obj = ISIN(isin)
+        isin_obj = ISIN(isin, options)
         holding = Holding(
             name=isin_obj.get_name(),
             isin=isin,

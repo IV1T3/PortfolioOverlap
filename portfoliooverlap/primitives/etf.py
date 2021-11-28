@@ -18,9 +18,7 @@ class ETF:
         self.isin = isin
         self.options = options
         self.alpha_vantage = AlphaVantage()
-        self.isin_ticker_mapping = load_json_data("isin_ticker_mapping")
-        self.ticker_isin_mapping = load_json_data("ticker_isin_mapping")
-        self.isin_price_mapping = load_json_data("isin_price_mapping")
+
         self.all_cached_etf_holdings = load_json_data("etf_holdings_data")
 
     def _download_etf_holdings(self, issuer, parse_url):
@@ -176,14 +174,14 @@ class ETF:
 
                     print(f"{main_ticker=}")
 
-                    ticker_obj = Ticker(main_ticker)
+                    ticker_obj = Ticker(main_ticker, self.options)
                     holding_isin = ticker_obj.to_isin()
 
                     # TODO: Improve handling of ISIN not found
                     if holding_isin != "-":
                         etf_data["holdings"].append([holding_isin, name, weight])
 
-                        isin_obj = ISIN(holding_isin)
+                        isin_obj = ISIN(holding_isin, self.options)
                         if not isin_obj.exists():
                             isin_obj.create()
 
